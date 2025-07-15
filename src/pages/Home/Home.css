@@ -1,0 +1,10 @@
+.home-page {
+  min-height: 110vh;
+}
+.home-page-section {
+  background-image: url("../../assets/slide1.jpg");
+  min-height: 500px;
+  background-color: rgba(53, 39, 157, 0);
+  background-position-y: 41%;
+  background-size: cover;
+}

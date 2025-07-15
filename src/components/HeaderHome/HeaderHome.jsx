@@ -1,0 +1,42 @@
+import React from "react";
+import "./HeaderHome.css";
+import logoImg from "../../assets/logo.png";
+
+function HeaderHome() {
+  return (
+    <div className="header-home">
+      <div className="header-home-grid">
+        <div className="header-home-img">
+          <a href="/">
+            <img src={logoImg} alt="logo" className="header-home-logo" />
+          </a>
+        </div>
+
+        <p className="header-home-p">
+          г. Санкт-Петербург ул Бухарестская, д 24, к 2 лит А, оф 8
+          <br />
+          <div className="header-home-line-text">
+            Тел:&nbsp;
+            <strong>
+              <a className="header-home-a" href="tel:+78126797730">
+                +7 (812) 679-77-30
+              </a>
+            </strong>
+          </div>
+          <div className="header-home-line-text">
+            E-mail:&nbsp;
+            <a
+              className="header-home-a"
+              href="mailto:zakaz@spbmetalloprokat.ru "
+              style={{ fontWeight: "400" }}
+            >
+              zakaz@spbmetalloprokat.ru
+            </a>
+          </div>
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export default HeaderHome;

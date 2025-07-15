@@ -1,0 +1,31 @@
+.blue-header-nav {
+  height: 50px;
+  background-color: rgba(52, 152, 219, 0.85);
+  text-align: center;
+  width: 100%;
+}
+.blue-header-nav ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.blue-header-nav a {
+  display: flex;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  text-decoration: none;
+  background: none;
+  height: 100%;
+  list-style: none;
+  color: rgba(255, 255, 255, 0.69);
+}
+.blue-header-nav ul li {
+}
+.blue-header-nav ul a:hover {
+  background-color: #578aac;
+  color: #fff;
+}
