@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import logoImg from "../../assets/logoWhite.png";
 import "./MainHeader.css";
 import { Link } from "react-router";
+import { ModalContext } from "../../context/ModalContext";
 
 function MainHeader(props) {
+  const { openModal } = useContext(ModalContext);
+
   return (
     <div className="main-header">
       <div className="main-header-section">
@@ -57,12 +60,13 @@ function MainHeader(props) {
                 КОНТАКТЫ
               </Link>
               <Link
-                to="/"
+                to="#"
                 className={`${
                   props.tab == "zakaz"
                     ? "main-header-current-tab"
                     : "main-header-a"
                 }`}
+                onClick={() => openModal()}
               >
                 ЗАКАЗАТЬ
               </Link>

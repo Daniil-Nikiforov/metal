@@ -6,15 +6,18 @@ import Home from "./pages/Home/Home";
 import Uslugi from "./pages/Uslugi/Uslugi";
 import Dostavka from "./pages/Dostavka/Dostavka";
 import Kontakti from "./pages/Kontakti/Kontakti";
+import { ModalProvider } from "./context/ModalContext";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/uslugi" element={<Uslugi />} />
-      <Route path="/dostavka" element={<Dostavka />} />
-      <Route path="/kontakti" element={<Kontakti />} />
-    </Routes>
+    <ModalProvider>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/uslugi" element={<Uslugi />} />
+        <Route path="/dostavka" element={<Dostavka />} />
+        <Route path="/kontakti" element={<Kontakti />} />
+      </Routes>
+    </ModalProvider>
   );
 }
 

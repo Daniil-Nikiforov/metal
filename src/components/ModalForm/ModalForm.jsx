@@ -1,13 +1,13 @@
 import React from "react";
 import "./ModalForm.css";
 
-function ModalForm() {
+function ModalForm({ onClose }) {
   return (
-    <div className="modal-overlay">
-      <form action="" className="modal-form">
+    <div className="modal-overlay" onClick={onClose}>
+      <form className="modal-form" onClick={(e) => e.stopPropagation()}>
         <h2 className="modal-form-h2">Мы ответим на все ваши вопросы!</h2>
 
-        <div className="modal-form-inputs">
+        {/* <div className="modal-form-inputs">
           <textarea
             name=""
             id=""
@@ -22,7 +22,7 @@ function ModalForm() {
           />
         </div>
 
-        <div className="modal-form-text"></div>
+        <div className="modal-form-text"></div> */}
       </form>
     </div>
   );
