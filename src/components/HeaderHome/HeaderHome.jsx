@@ -18,7 +18,11 @@ function HeaderHome() {
           <div className="header-home-line-text">
             Тел:&nbsp;
             <strong>
-              <a className="header-home-a" href="tel:+78126797730">
+              <a
+                className="header-home-a"
+                href="tel:+78126797730"
+                style={{ fontWeight: "600" }}
+              >
                 +7 (812) 679-77-30
               </a>
             </strong>
@@ -28,7 +32,7 @@ function HeaderHome() {
             <a
               className="header-home-a"
               href="mailto:zakaz@spbmetalloprokat.ru "
-              style={{ fontWeight: "400" }}
+              style={{ fontWeight: "600" }}
             >
               zakaz@spbmetalloprokat.ru
             </a>
