@@ -7,7 +7,7 @@ function BlueHeaderNav() {
     <div className="blue-header-nav">
       <ul>
         <Link to="/">ПРАЙСЫ</Link>
-        <Link to="/">УСЛУГИ</Link>
+        <Link to="/uslugi">УСЛУГИ</Link>
         <Link to="/">ДОСТАВКА И ОПЛАТА</Link>
         <Link to="/">КОНТАКТЫ</Link>
         <Link to="/">ЗАКАЗАТЬ</Link>
