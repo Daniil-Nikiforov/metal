@@ -9,11 +9,11 @@ function Uslugi() {
     <div className="uslugi-page">
       <MainHeader tab="uslugi" />
       <MainContentSection header="Услуги">
-        <ul>
+        <ul className="uslugi-page-ul">
           <li>Покраска</li>
           <li>
             Резка листового металлопроката
-            <ul>
+            <ul className="uslugi-page-ul">
               <li>Резка на портальном станке с ЧПУ</li>
               <li>Плазменная резка</li>
               <li>Лазерная резка</li>
@@ -23,7 +23,7 @@ function Uslugi() {
           </li>
           <li>
             Резка сортового металлопроката
-            <ul>
+            <ul className="uslugi-page-ul">
               <li>Резка на ленточнопильном станке</li>
               <li>Резка абразивным кругом</li>
             </ul>

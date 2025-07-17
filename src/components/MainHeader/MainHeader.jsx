@@ -47,9 +47,9 @@ function MainHeader(props) {
                 ДОСТАВКА И ОПЛАТА
               </Link>
               <Link
-                to="/"
+                to="/kontakti"
                 className={`${
-                  props.tab == "contacts"
+                  props.tab == "kontakti"
                     ? "main-header-current-tab"
                     : "main-header-a"
                 }`}
