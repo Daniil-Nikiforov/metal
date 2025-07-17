@@ -8,7 +8,7 @@ function BlueHeaderNav() {
       <ul>
         <Link to="/">ПРАЙСЫ</Link>
         <Link to="/uslugi">УСЛУГИ</Link>
-        <Link to="/">ДОСТАВКА И ОПЛАТА</Link>
+        <Link to="/dostavka">ДОСТАВКА И ОПЛАТА</Link>
         <Link to="/">КОНТАКТЫ</Link>
         <Link to="/">ЗАКАЗАТЬ</Link>
       </ul>

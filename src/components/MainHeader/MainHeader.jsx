@@ -37,9 +37,9 @@ function MainHeader(props) {
                 УСЛУГИ
               </Link>
               <Link
-                to="/"
+                to="/dostavka"
                 className={`${
-                  props.tab == "delivery"
+                  props.tab == "dostavka"
                     ? "main-header-current-tab"
                     : "main-header-a"
                 }`}

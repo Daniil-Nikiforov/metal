@@ -1,0 +1,17 @@
+.dostavka-page-content p {
+  display: block;
+  line-height: 22px;
+  margin-bottom: 14px;
+  text-align: justify;
+}
+.dostavka-page-content p strong {
+  font-weight: 600;
+}
+.dostavka-page-content p a {
+  color: #3b9bdb;
+}
+ol,
+ul {
+  margin-left: 40px;
+  line-height: 22px;
+}
