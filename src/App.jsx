@@ -7,6 +7,7 @@ import Uslugi from "./pages/Uslugi/Uslugi";
 import Dostavka from "./pages/Dostavka/Dostavka";
 import Kontakti from "./pages/Kontakti/Kontakti";
 import { ModalProvider } from "./context/ModalContext";
+import Rules from "./pages/Rules/Rules";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/uslugi" element={<Uslugi />} />
         <Route path="/dostavka" element={<Dostavka />} />
         <Route path="/kontakti" element={<Kontakti />} />
+        <Route path="/rules" element={<Rules />} />
       </Routes>
     </ModalProvider>
   );

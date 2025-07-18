@@ -1,0 +1,20 @@
+.rules-page-content p {
+  display: block;
+  line-height: 22px;
+  margin-bottom: 14px;
+  text-align: justify;
+}
+.dostavka-page-content p strong {
+  font-weight: 600;
+}
+.dostavka-page-content p a {
+  color: #3b9bdb;
+  transition: color 0.15s linear;
+}
+.dostavka-page-content p a:hover {
+  color: #2381c0;
+}
+.dostavka-page-ul {
+  margin-left: 40px;
+  line-height: 22px;
+}

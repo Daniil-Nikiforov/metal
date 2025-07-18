@@ -6,6 +6,7 @@ export const ModalContext = createContext();
 export const ModalProvider = ({ children }) => {
   const [modal, setModal] = useState({
     isOpen: false,
+    closeAnimation: false,
   });
 
   const openModal = () => {
@@ -13,11 +14,14 @@ export const ModalProvider = ({ children }) => {
   };
 
   const closeModal = () => {
-    setModal({ isOpen: false });
+    setModal({ closeAnimation: true, isOpen: true });
+    setTimeout(() => {
+      setModal({ isOpen: false });
+    }, 300);
   };
 
   return (
-    <ModalContext.Provider value={{ openModal, closeModal }}>
+    <ModalContext.Provider value={{ openModal, closeModal, modal }}>
       {children}
       {modal.isOpen && <ModalForm onClose={closeModal}></ModalForm>}
     </ModalContext.Provider>
