@@ -3,6 +3,8 @@ import logoImg from "../../assets/logoWhite.png";
 import "./MainHeader.css";
 import { Link } from "react-router";
 import { ModalContext } from "../../context/ModalContext";
+import DropDownGreyHeader from "../DropDownGreyHeader/DropDownGreyHeader";
+import { allLinks } from "../../jsDB/jsDb.js";
 
 function MainHeader(props) {
   const { openModal } = useContext(ModalContext);
@@ -76,66 +78,42 @@ function MainHeader(props) {
       </div>
       <div className="main-header-section-second">
         <ul>
-          <Link
-            to="/"
-            className={`${
-              props.tab == "cvet"
-                ? "main-header-current-tab-metal"
-                : "main-header-a-metal"
-            }`}
-          >
-            Цветной
-          </Link>
-          <Link
-            to="/"
-            className={`${
-              props.tab == "chern"
-                ? "main-header-current-tab-metal"
-                : "main-header-a-metal"
-            }`}
-          >
-            Черный
-          </Link>
-          <Link
-            to="/"
-            className={`${
-              props.tab == "nershav"
-                ? "main-header-current-tab-metal"
-                : "main-header-a-metal"
-            }`}
-          >
-            Нержавеющая сталь
-          </Link>
-          <Link
-            to="/"
-            className={`${
-              props.tab == "set"
-                ? "main-header-current-tab-metal"
-                : "main-header-a-metal"
-            }`}
-          >
-            Сетка
-          </Link>
-          <Link
-            to="/"
-            className={`${
-              props.tab == "list"
-                ? "main-header-current-tab-metal"
-                : "main-header-a-metal"
-            }`}
-          >
-            Перфорированный лист
-          </Link>
-          <Link
-            to="/"
-            className={`${
-              props.tab == "shtok"
-                ? "main-header-current-tab-metal"
-                : "main-header-a-metal"
-            }`}
-          >
-            Трубы и штоки
-          </Link>
+          <DropDownGreyHeader
+            className="main-header-a-metal"
+            url={allLinks[0].link}
+            name={allLinks[0].name}
+            links={allLinks[0].links}
+          />
+          <DropDownGreyHeader
+            className="main-header-a-metal"
+            url={allLinks[1].link}
+            name={allLinks[1].name}
+            links={allLinks[1].links}
+          />
+          <DropDownGreyHeader
+            className="main-header-a-metal"
+            url={allLinks[2].link}
+            name={allLinks[2].name}
+            links={allLinks[2].links}
+          />
+          <DropDownGreyHeader
+            className="main-header-a-metal"
+            url={allLinks[3].link}
+            name={allLinks[3].name}
+            links={allLinks[3].links}
+          />
+          <DropDownGreyHeader
+            className="main-header-a-metal"
+            url={allLinks[4].link}
+            name={allLinks[4].name}
+            links={allLinks[4].links}
+          />
+          <DropDownGreyHeader
+            className="main-header-a-metal"
+            url={allLinks[5].link}
+            name={allLinks[5].name}
+            links={allLinks[5].links}
+          />
         </ul>
       </div>
     </div>

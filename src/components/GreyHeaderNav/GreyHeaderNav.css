@@ -14,16 +14,16 @@
   align-items: center;
 }
 .grey-header-nav a {
-  display: flex;
+  /* display: flex;
   align-items: center;
   padding: 0 10px 0 10px;
   text-decoration: none;
   background: none;
   height: 100%;
   list-style: none;
-  color: #fff;
+  color: #fff; */
 }
 .grey-header-nav ul a:hover {
-  background-color: #697481;
-  color: #fff;
+  /* background-color: #697481;
+  color: #fff; */
 }
