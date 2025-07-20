@@ -39,15 +39,18 @@
 }
 .matal-page-content-img-button {
   display: grid;
-  grid-template-columns: 354px auto 270px;
+  grid-template-columns: auto auto auto;
   grid-template-rows: 1fr;
   grid-template-rows: "img space button";
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
+  max-width: 100%;
 }
 .matal-page-content-img {
   grid-area: "img";
   display: block;
+  max-width: 100%;
 }
 .metal-page-content-btn-zayavka {
   grid-area: "button";
@@ -60,7 +63,8 @@
   padding: 15px 20px;
   font-size: 18px;
   font-weight: bold;
-  width: 270px;
+  max-width: 270px;
+  width: 100%;
   height: 72px;
   box-sizing: border-box;
   outline: none;

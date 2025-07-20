@@ -29,7 +29,7 @@ function MetalPage() {
             return (
               <div className="metal-page">
                 <MainHeader />
-                <MainContentSection header="Загрузка"></MainContentSection>
+                <MainContentSection header="Загрузка..."></MainContentSection>
                 <YandexMap />
               </div>
             );

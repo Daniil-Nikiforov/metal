@@ -9,6 +9,7 @@ import Kontakti from "./pages/Kontakti/Kontakti";
 import { ModalProvider } from "./context/ModalContext";
 import Rules from "./pages/Rules/Rules";
 import MetalPage from "./pages/MetalPage/MetalPage";
+import MetalList from "./pages/MetalList/MetalList";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/kontakti" element={<Kontakti />} />
         <Route path="/rules" element={<Rules />} />
         <Route path="/metals/:name" element={<MetalPage />} />
+        <Route path="/metal-list/:name" element={<MetalList />} />
       </Routes>
     </ModalProvider>
   );
