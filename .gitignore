@@ -49,3 +49,4 @@ back/*.sln
 back/*.sw?
 
 .env
+node_modules
