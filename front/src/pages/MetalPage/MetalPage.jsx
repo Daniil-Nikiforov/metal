@@ -7,6 +7,7 @@ import { allMetals } from "../../jsDB/jsDb.js";
 import "./MetalPage.css";
 import { ModalContext } from "../../context/ModalContext.jsx";
 import parser from "html-react-parser";
+import { fetchSingleMetal } from "../../api/metalApi.js";
 
 function MetalPage() {
   const { name } = useParams();
@@ -16,31 +17,43 @@ function MetalPage() {
   const { openModal } = useContext(ModalContext);
 
   useEffect(() => {
-    const fetchMetal = () => {
-      setLoading(true);
+    // const fetchMetal = () => {
+
+    //   setLoading(true);
+    //   try {
+    //     setTimeout(() => {
+    //       let currentMetal = allMetals.filter((item) => item.url === name);
+    //       if (currentMetal && currentMetal.length > 0) {
+    //         setMetal(currentMetal[0]);
+    //         setLoading(false);
+    //       } else {
+    //         setLoading(false);
+    //         return (
+    //           <div className="metal-page">
+    //             <MainHeader />
+    //             <MainContentSection header="Загрузка..."></MainContentSection>
+    //             <YandexMap />
+    //           </div>
+    //         );
+    //       }
+    //     }, 0);
+    //   } catch (error) {
+    //     setLoading(false);
+    //     console.log(error.message);
+    //   }
+    // };
+    // fetchMetal();
+    const loadData = async () => {
       try {
-        setTimeout(() => {
-          let currentMetal = allMetals.filter((item) => item.url === name);
-          if (currentMetal && currentMetal.length > 0) {
-            setMetal(currentMetal[0]);
-            setLoading(false);
-          } else {
-            setLoading(false);
-            return (
-              <div className="metal-page">
-                <MainHeader />
-                <MainContentSection header="Загрузка..."></MainContentSection>
-                <YandexMap />
-              </div>
-            );
-          }
-        }, 0);
-      } catch (error) {
+        const response = await fetchSingleMetal(name);
+        setMetal(response.data[0]);
         setLoading(false);
-        console.log(error.message);
+      } catch (error) {
+        console.error("Ошибка загрузки:", error);
+        setLoading(false);
       }
     };
-    fetchMetal();
+    loadData();
   }, [name]);
 
   if (loading) {
@@ -80,8 +93,8 @@ function MetalPage() {
 
             <div className="matal-page-content-img-button">
               <img
-                src={metal.img}
-                alt={metal.url}
+                src={metal.image_path}
+                alt={metal.image_path}
                 className="matal-page-content-img"
               />
               <div className="matal-page-content-space"></div>
@@ -95,112 +108,8 @@ function MetalPage() {
               </button>
             </div>
 
-            {/* <div className="matal-page-content-description">
-              <p>
-                Компания "СОЮЗМЕТАЛЛ" предлагает широкий ассортимент АЛЮМИНИЕВОЙ
-                ПРОВОЛОКИ&nbsp; различных сплавов и размеров<strong>.</strong>{" "}
-                Продажа осуществляется как оптом, так и в розницу, по выгодной
-                цене, со склада в Санкт-Петербурге. По Вашему желанию
-                производится <strong>резка в размер</strong> от 5кг.{" "}
-                <strong>Доставка.</strong>{" "}
-              </p>
-
-              <p>
-                <em>
-                  <strong>Работаем с физическими и юридическими лицами.</strong>
-                </em>
-              </p>
-
-              <p>
-                Алюминиевая проволока представляет собой сплошной полуфабрикат
-                постоянного сечения в поперечном размере, свернутый в бухту или
-                намотанный на катушку, изготовляемый прокаткой, прессованием или
-                волочением. В зависимости от сплава и состояния свойства
-                алюминиевой проволоки варьируется, но к общим можно отнести
-                характерные качества: высокую коррозионную стойкость и легкий
-                вес в сочетании с относительно повышенными конструкционными
-                свойствами.&nbsp;
-              </p>
-
-              <p>
-                <strong>
-                  Подробную информацию по стоимости, размерам и доставке можно
-                  получить по телефону у наших менеджеров. Или отправив заявку
-                  на электронную почту. Или в сообщении - мы Вам перезвоним!
-                </strong>
-              </p>
-
-              <p>
-                <strong>
-                  Наша Компания гарантирует качество поставляемого
-                  металлопроката наличием сертификатов качества заводов
-                  изготовителей.
-                </strong>
-              </p>
-
-              <p>
-                <strong>
-                  <em>Отправка в любой регион РФ транспортной компанией</em>
-                </strong>
-              </p>
-
-              <p>
-                <strong>☎&nbsp;Звоните.</strong>
-              </p>
-
-              <table>
-                {" "}
-                <tbody>
-                  <tr>
-                    {" "}
-                    <td>
-                      <strong>
-                        <em>Сплав</em>
-                      </strong>
-                    </td>{" "}
-                    <td>
-                      <strong>
-                        <em>Диаметр </em>
-                      </strong>
-                    </td>{" "}
-                  </tr>{" "}
-                  <tr>
-                    {" "}
-                    <td>
-                      <a href="https://almet.ru/alyuminii/alyuminievaja-provoloka/alyuminievaja-provoloka-a5-a7-ad1.html"></a>
-                      СвА5, СвА7, АД1 <br />
-                    </td>{" "}
-                    <td>от 1,0 до 8,0 мм </td>{" "}
-                  </tr>{" "}
-                  <tr>
-                    {" "}
-                    <td>СвАМц, АМц</td> <td>от 1,6 до 4,0 мм </td>{" "}
-                  </tr>{" "}
-                  <tr>
-                    {" "}
-                    <td>АМг2, СвАМг3 </td> <td>от 1,2 до 4,0 мм</td>{" "}
-                  </tr>{" "}
-                  <tr>
-                    {" "}
-                    <td>СвАМг5, АМг5П</td> <td>от 0,8 до 8,0 мм </td>{" "}
-                  </tr>{" "}
-                  <tr>
-                    {" "}
-                    <td>СвАМг6, СвАМг61, СвАМг63</td> <td>от 1,2 до 8,0 мм </td>{" "}
-                  </tr>{" "}
-                  <tr>
-                    {" "}
-                    <td>Д1П, Д16П, Д18, В65</td> <td>от 2,0 до 6,0 мм </td>{" "}
-                  </tr>{" "}
-                  <tr>
-                    {" "}
-                    <td>СвАК5, СвАК10, Св1201</td> <td>от 1,2 до 6,0 мм</td>{" "}
-                  </tr>{" "}
-                </tbody>
-              </table>
-            </div> */}
             <div className="matal-page-content-description">
-              {parser(metal.htmlContent.replaceAll(`{" "}`, ""))}
+              {parser(metal.html_content.replaceAll(`{" "}`, ""))}
             </div>
           </div>
         </MainContentSection>
