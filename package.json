@@ -1,0 +1,31 @@
+{
+  "name": "spbmetalloprokat",
+  "version": "1.0.0",
+  "main": "back/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon back/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniil-Nikiforov/metal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daniil-Nikiforov/metal/issues"
+  },
+  "homepage": "https://github.com/Daniil-Nikiforov/metal#readme",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.10",
+    "path": "^0.12.7",
+    "pg": "^8.16.3"
+  }
+}
