@@ -5,42 +5,59 @@ import YandexMap from "../../components/YandexMap/YandexMap";
 import { Link, useParams } from "react-router";
 import { allMetals } from "../../jsDB/jsDb.js";
 import "./MetalList.css";
-
+import { fetchMetalSubType } from "../../api/metalApi.js";
+// import "../../../public/images/metals/cvetnoi/alumini/alyuminievajaProvoloka.jpg";
 function MetalList() {
   const { name } = useParams();
   const [metalList, setMetalList] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchMetalList = () => {
-      setLoading(true);
+    // const fetchMetalList = () => {
+    //   setLoading(true);
+    //   try {
+    //     setTimeout(() => {
+    //       let currentMetalList = allMetals.filter(
+    //         (item) => item.subType === name
+    //       );
+    //       if (currentMetalList && currentMetalList.length > 0) {
+    //         setMetalList(currentMetalList);
+    //         setLoading(false);
+    //       } else {
+    //         setLoading(false);
+    //         return (
+    //           <div className="metal-list-page">
+    //             <MainHeader />
+    //             <MainContentSection header="Загрузка..."></MainContentSection>
+    //             <YandexMap />
+    //           </div>
+    //         );
+    //       }
+    //     }, 0);
+    //   } catch (error) {
+    //     setLoading(false);
+    //     console.log(error.message);
+    //   }
+    // };
+    // fetchMetalList();
+    const loadData = async () => {
       try {
-        setTimeout(() => {
-          let currentMetalList = allMetals.filter(
-            (item) => item.subType === name
-          );
-          if (currentMetalList && currentMetalList.length > 0) {
-            setMetalList(currentMetalList);
-            setLoading(false);
-          } else {
-            setLoading(false);
-            return (
-              <div className="metal-list-page">
-                <MainHeader />
-                <MainContentSection header="Загрузка..."></MainContentSection>
-                <YandexMap />
-              </div>
-            );
-          }
-        }, 0);
-      } catch (error) {
+        const response = await fetchMetalSubType(name);
+        setMetalList(response.data);
         setLoading(false);
-        console.log(error.message);
+      } catch (error) {
+        console.error("Ошибка загрузки:", error);
+        setLoading(false);
       }
     };
-    fetchMetalList();
+    loadData();
   }, [name]);
-  console.log(metalList);
+
+  if (metalList) {
+    console.log(metalList["0"].sub_type_ru);
+    console.log(typeof metalList);
+  }
+
   if (loading) {
     return (
       <div className="metal-list-page">
@@ -62,23 +79,23 @@ function MetalList() {
   return (
     <div className="metal-list-page">
       <MainHeader />
-      <MainContentSection header={metalList[0].subTypeRu}>
+      <MainContentSection header={metalList["0"].sub_type_ru}>
         <div className="metal-list-page-content">
           {metalList.map((metal, index) => (
             <div key={metal.id} className="metal-list-page-content-metal">
               <Link
-                to={`/metals/${metal.url}`}
+                to={`/metals/${metal.url_slug}`}
                 className="metal-list-page-content-metal-img-link"
               >
                 <img
-                  src={metal.img}
-                  alt={metal.img}
+                  src={metal.image_path}
+                  alt={metal.image_path}
                   className="metal-list-page-content-metal-img"
                 />
               </Link>
 
               <Link
-                to={`/metals/${metal.url}`}
+                to={`/metals/${metal.url_slug}`}
                 className="metal-list-page-content-metal-link"
               >
                 {metal.name}

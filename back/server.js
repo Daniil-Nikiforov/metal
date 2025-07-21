@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import path from "path";
 import morgan from "morgan";
 
+import pool from "./db/db.js";
 import metalRoutes from "./routes/metalRoutes.js";
 
 dotenv.config();
@@ -19,6 +20,23 @@ app.use(morgan("dev")); //log res
 
 const __dirname = path.resolve();
 
+// app.use("/api/metals", (req, res) => {
+//   try {
+//     pool
+//       .connect()
+//       .then(() => console.log("Connected to PostgreSQL"))
+//       .catch((err) => console.error("Connection error", err.stack));
+
+//     pool.query("SELECT * from metal", (err, ress) => {
+//       if (err) {
+//         console.error(err);
+//         return;
+//       }
+//       res.send(ress.rows);
+//       pool.end();
+//     });
+//   } catch (error) {}
+// });
 app.use("/api/metals", metalRoutes);
 
 app.listen(PORT, () => {
