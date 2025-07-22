@@ -12,7 +12,7 @@ export const allLinks = [
       {
         id: 0,
         name: "Алюминий",
-        url: "/alumin",
+        url: "/alumini",
       },
       {
         id: 1,

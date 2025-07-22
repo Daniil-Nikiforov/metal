@@ -10,19 +10,24 @@ import { ModalProvider } from "./context/ModalContext";
 import Rules from "./pages/Rules/Rules";
 import MetalPage from "./pages/MetalPage/MetalPage";
 import MetalList from "./pages/MetalList/MetalList";
+import MetalListType from "./pages/MetalListType/MetalListType";
+import { ModalButtonProvider } from "./context/ModalButtonContext";
 
 function App() {
   return (
     <ModalProvider>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/uslugi" element={<Uslugi />} />
-        <Route path="/dostavka" element={<Dostavka />} />
-        <Route path="/kontakti" element={<Kontakti />} />
-        <Route path="/rules" element={<Rules />} />
-        <Route path="/metals/:name" element={<MetalPage />} />
-        <Route path="/metal-list/:name" element={<MetalList />} />
-      </Routes>
+      <ModalButtonProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/uslugi" element={<Uslugi />} />
+          <Route path="/dostavka" element={<Dostavka />} />
+          <Route path="/kontakti" element={<Kontakti />} />
+          <Route path="/rules" element={<Rules />} />
+          <Route path="/metals/:name" element={<MetalPage />} />
+          <Route path="/metal-list/:name" element={<MetalList />} />
+          <Route path="/:name" element={<MetalListType />} />
+        </Routes>
+      </ModalButtonProvider>
     </ModalProvider>
   );
 }

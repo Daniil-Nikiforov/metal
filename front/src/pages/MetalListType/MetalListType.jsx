@@ -3,46 +3,17 @@ import MainHeader from "../../components/MainHeader/MainHeader";
 import MainContentSection from "../../components/MainContentSection/MainContentSection";
 import YandexMap from "../../components/YandexMap/YandexMap";
 import { Link, useParams } from "react-router";
-import { allMetals } from "../../jsDB/jsDb.js";
-import "./MetalList.css";
-import { fetchMetalSubType } from "../../api/metalApi.js";
-// import "../../../public/images/metals/cvetnoi/alumini/alyuminievajaProvoloka.jpg";
-function MetalList() {
+import { fetchMetalType } from "../../api/metalApi";
+
+function MetalListType() {
   const { name } = useParams();
   const [metalList, setMetalList] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // const fetchMetalList = () => {
-    //   setLoading(true);
-    //   try {
-    //     setTimeout(() => {
-    //       let currentMetalList = allMetals.filter(
-    //         (item) => item.subType === name
-    //       );
-    //       if (currentMetalList && currentMetalList.length > 0) {
-    //         setMetalList(currentMetalList);
-    //         setLoading(false);
-    //       } else {
-    //         setLoading(false);
-    //         return (
-    //           <div className="metal-list-page">
-    //             <MainHeader />
-    //             <MainContentSection header="Загрузка..."></MainContentSection>
-    //             <YandexMap />
-    //           </div>
-    //         );
-    //       }
-    //     }, 0);
-    //   } catch (error) {
-    //     setLoading(false);
-    //     console.log(error.message);
-    //   }
-    // };
-    // fetchMetalList();
     const loadData = async () => {
       try {
-        const response = await fetchMetalSubType(name);
+        const response = await fetchMetalType(name);
         setMetalList(response.data);
         setLoading(false);
       } catch (error) {
@@ -74,7 +45,7 @@ function MetalList() {
   return (
     <div className="metal-list-page">
       <MainHeader />
-      <MainContentSection header={metalList["0"].sub_type_ru}>
+      <MainContentSection header={metalList["0"].main_type_ru}>
         <div className="metal-list-page-content">
           {metalList.map((metal, index) => (
             <div key={metal.id} className="metal-list-page-content-metal">
@@ -104,4 +75,4 @@ function MetalList() {
   );
 }
 
-export default MetalList;
+export default MetalListType;

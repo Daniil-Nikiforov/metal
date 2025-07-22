@@ -8,6 +8,7 @@ import morgan from "morgan";
 import pool from "./db/db.js";
 import metalRoutes from "./routes/metalRoutes.js";
 import metalSingleRoute from "./routes/metalSingleRoute.js";
+import metalTypeRoutes from "./routes/metalTypeRoutes.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(morgan("dev")); //log res
 const __dirname = path.resolve();
 
 app.use("/api/metals", metalRoutes);
+app.use("/api", metalTypeRoutes);
 app.use("/api/metal", metalSingleRoute);
 
 app.listen(PORT, () => {

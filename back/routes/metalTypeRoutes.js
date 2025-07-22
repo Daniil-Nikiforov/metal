@@ -3,15 +3,15 @@ import pool from "../db/db.js";
 
 const router = express.Router();
 
-router.get("/:subType", async (req, res) => {
+router.get("/:type", async (req, res) => {
   try {
-    const { subType } = req.params;
+    const { type } = req.params;
 
     const { rows } = await pool.query(
       `SELECT * FROM metal
-      WHERE sub_type = $1
+      WHERE main_type = $1
       ORDER BY id`,
-      [subType]
+      [type]
     );
     res.json(rows);
   } catch (error) {
