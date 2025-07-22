@@ -81,15 +81,22 @@
   text-align: justify;
   margin-bottom: 14px;
 }
+.matal-page-content-description p em {
+  font-style: italic;
+}
 .matal-page-content-description p strong {
   font-weight: 600;
 }
 .matal-page-content-description table {
   border-collapse: collapse;
+  margin-bottom: 14px;
 }
 .matal-page-content-description table td {
   padding: 10px;
   border: solid 1px #ccc;
+}
+.matal-page-content-description table td strong {
+  font-weight: 600;
 }
 .matal-page-content-description ul {
   padding-left: 20px;

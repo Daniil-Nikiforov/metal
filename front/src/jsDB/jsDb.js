@@ -17,7 +17,7 @@ export const allLinks = [
       {
         id: 1,
         name: "Бронза",
-        url: "/bronze",
+        url: "/bronza",
       },
       {
         id: 2,
