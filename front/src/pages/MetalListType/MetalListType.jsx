@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import MainContentSection from "../../components/MainContentSection/MainContentSection";
 import YandexMap from "../../components/YandexMap/YandexMap";
-import { Link, useParams } from "react-router";
+import { Link, useLocation, useParams } from "react-router";
 import { fetchMetalType } from "../../api/metalApi";
 
 function MetalListType() {
@@ -10,8 +10,11 @@ function MetalListType() {
   const [metalList, setMetalList] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const location = useLocation();
+
   useEffect(() => {
     const loadData = async () => {
+      window.scrollTo(0, 0);
       try {
         const response = await fetchMetalType(name);
         setMetalList(response.data);

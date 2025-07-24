@@ -32,7 +32,12 @@ export const allLinks = [
       {
         id: 4,
         name: "Нихром. Фехраль",
-        url: "/nixrom",
+        url: "/nihrom-fehral",
+      },
+      {
+        id: 5,
+        name: "Свинец",
+        url: "/svinec",
       },
     ],
   },

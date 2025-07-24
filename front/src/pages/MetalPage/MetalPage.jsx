@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import MainContentSection from "../../components/MainContentSection/MainContentSection";
 import YandexMap from "../../components/YandexMap/YandexMap";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { allMetals } from "../../jsDB/jsDb.js";
 import "./MetalPage.css";
 import { ModalContext } from "../../context/ModalContext.jsx";
@@ -15,6 +15,8 @@ function MetalPage() {
   const [loading, setLoading] = useState(true);
 
   const { openModal } = useContext(ModalContext);
+
+  const location = useLocation();
 
   useEffect(() => {
     // const fetchMetal = () => {
@@ -44,6 +46,7 @@ function MetalPage() {
     // };
     // fetchMetal();
     const loadData = async () => {
+      window.scrollTo(0, 0);
       try {
         const response = await fetchSingleMetal(name);
         setMetal(response.data[0]);

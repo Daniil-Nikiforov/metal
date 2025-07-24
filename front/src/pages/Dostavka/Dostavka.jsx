@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Dostavka.css";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import YandexMap from "../../components/YandexMap/YandexMap";
 import MainContentSection from "../../components/MainContentSection/MainContentSection";
+import { Link } from "react-router";
+import { ModalContext } from "../../context/ModalContext";
 
 function Dostavka() {
+  const { openModal } = useContext(ModalContext);
+
   return (
     <div className="dostavka-page">
       <MainHeader tab="dostavka" />
@@ -24,7 +28,7 @@ function Dostavka() {
 
           <p>
             2) Заполнить&nbsp;
-            <a href="/">онлайн-форму</a>
+            <Link onClick={openModal}>онлайн-форму</Link>
             &nbsp;в свободной форме. Менеджер обработает заявку, рассчитает
             стоимость и ответит Вам.
           </p>
@@ -49,8 +53,9 @@ function Dostavka() {
             <ul className="dostavka-page-ul">
               <li>
                 Оплата наличными производится в офисе компании ООО «СОЮЗМЕТАЛЛ»
-                (<a href="/">см. схему проезда</a>) по адресу: Санкт-Петербург,
-                улица Бухарестская, дом 24, корпус 2 литера А, офис 8.
+                (<Link to="/kontakti">см. схему проезда</Link>) по адресу:
+                Санкт-Петербург, улица Бухарестская, дом 24, корпус 2 литера А,
+                офис 8.
               </li>
               <li>
                 Безналичные платежи принимаются путем осуществления перевода на
@@ -78,7 +83,7 @@ function Dostavka() {
                 Самостоятельный вывоз товара со складского комплекса в
                 Санкт-Петербурге. Для этого необходимо подъехать по адресу:
                 улица Бухарестская, дом 24, корпус 2 литера А, офис 8. (
-                <a href="/">см. схему проезда</a>).
+                <Link to="/kontakti">см. схему проезда</Link>).
               </li>
               <li>
                 Доставка товара в регионы РФ осуществляется ТК. Стоимость

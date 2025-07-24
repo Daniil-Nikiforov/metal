@@ -12,22 +12,25 @@ import MetalPage from "./pages/MetalPage/MetalPage";
 import MetalList from "./pages/MetalList/MetalList";
 import MetalListType from "./pages/MetalListType/MetalListType";
 import { ModalButtonProvider } from "./context/ModalButtonContext";
+import { ModalPhoneProvider } from "./context/ModalPhoneContext";
 
 function App() {
   return (
     <ModalProvider>
-      <ModalButtonProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/uslugi" element={<Uslugi />} />
-          <Route path="/dostavka" element={<Dostavka />} />
-          <Route path="/kontakti" element={<Kontakti />} />
-          <Route path="/rules" element={<Rules />} />
-          <Route path="/metals/:name" element={<MetalPage />} />
-          <Route path="/metal-list/:name" element={<MetalList />} />
-          <Route path="/:name" element={<MetalListType />} />
-        </Routes>
-      </ModalButtonProvider>
+      <ModalPhoneProvider>
+        <ModalButtonProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/uslugi" element={<Uslugi />} />
+            <Route path="/dostavka" element={<Dostavka />} />
+            <Route path="/kontakti" element={<Kontakti />} />
+            <Route path="/rules" element={<Rules />} />
+            <Route path="/metals/:name" element={<MetalPage />} />
+            <Route path="/metal-list/:name" element={<MetalList />} />
+            <Route path="/:name" element={<MetalListType />} />
+          </Routes>
+        </ModalButtonProvider>
+      </ModalPhoneProvider>
     </ModalProvider>
   );
 }

@@ -10,7 +10,7 @@
   width: 100%;
   text-align: center;
   height: 45px;
-  background: #838b95d9;
+  background: #c12c2c;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -50,7 +50,7 @@
   fill: #f43;
 }
 .yandex-footer {
-  background-color: rgba(131, 139, 149, 0.85);
+  background-color: #c12c2c;
   color: #fff;
   min-height: 68px;
   width: 100%;

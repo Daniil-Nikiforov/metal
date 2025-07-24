@@ -1,6 +1,7 @@
 import React from "react";
 import "./HeaderHome.css";
 import logoImg from "../../assets/logo.png";
+import logoImgWhite from "../../assets/logoWhite.png";
 
 function HeaderHome() {
   return (
@@ -8,7 +9,7 @@ function HeaderHome() {
       <div className="header-home-grid">
         <div className="header-home-img">
           <a href="/">
-            <img src={logoImg} alt="logo" className="header-home-logo" />
+            <img src={logoImgWhite} alt="logo" className="header-home-logo" />
           </a>
         </div>
 

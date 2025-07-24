@@ -1,8 +1,10 @@
 .grey-header-nav {
   height: 50px;
-  background-color: rgba(131, 139, 149, 0.81);
+  /* background-color: rgba(131, 139, 149, 0.81); */
+  background-color: #fff;
   text-align: center;
   width: 100%;
+  margin-bottom: 20px;
 }
 .grey-header-nav ul {
   margin: 0;

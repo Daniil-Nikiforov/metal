@@ -11,3 +11,7 @@ export const fetchMetalType = (type) => {
 export const fetchSingleMetal = (url) => {
   return axios.get(`http://localhost:3000/api/metal/${url}`);
 };
+
+export const fetchAllMetals = () => {
+  return axios.get(`http://localhost:3000/api/get-all-metals/metals`);
+};

@@ -8,3 +8,10 @@
   background-position-y: 41%;
   background-size: cover;
 }
+.home-page-loading {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+}

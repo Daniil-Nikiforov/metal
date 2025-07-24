@@ -1,7 +1,9 @@
 .header-home {
   height: 80px;
   padding: 15px 0 15px 0;
-  background: #e5e9ec;
+  /* background: #e5e9ec; */
+  /* background: #c12c2c; */
+  background: #c12c2c;
   width: 100%;
   overflow: hidden;
   margin: 0 auto;
@@ -29,16 +31,19 @@
 }
 .header-home-p {
   grid-area: text;
-  color: #5d616d;
+  /* color: #5d616d; */
+  color: #fff;
   line-height: 22px;
 }
 .header-home-a {
   display: inline-block;
-  color: #5d616d;
+  /* color: #5d616d; */
+  color: #fff;
   font-weight: 600;
 }
 .header-home-line-text {
   display: flex;
-  color: #5d616d;
+  /* color: #5d616d; */
+  color: #fff;
   align-items: center;
 }

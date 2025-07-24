@@ -1,44 +1,42 @@
 import React, { useContext } from "react";
-import "./ModalForm.css";
+import { ModalPhoneContext } from "../../context/ModalPhoneContext";
+import "./ModalPhone.css";
 import { MdEmail } from "react-icons/md";
 import { IoIosArrowRoundDown } from "react-icons/io";
-import { ModalContext } from "../../context/ModalContext";
 import { Link } from "react-router";
+import { FaPhoneVolume } from "react-icons/fa6";
 
-function ModalForm({ onClose }) {
-  const { modal } = useContext(ModalContext);
+function ModalPhone({ onClose }) {
+  const { modalPhone } = useContext(ModalPhoneContext);
+
   return (
     <div
-      className={`modal-overlay ${modal.closeAnimation ? "modal-close" : ""}`}
+      className={`modal-overlayP ${
+        modalPhone.closeAnimation ? "modal-closeP" : ""
+      }`}
       onClick={onClose}
     >
-      <form className="modal-form" onClick={(e) => e.stopPropagation()}>
-        <h2 className="modal-form-h2">Мы ответим на все ваши вопросы!</h2>
+      <form className="modal-formP" onClick={(e) => e.stopPropagation()}>
+        <h2 className="modal-form-h2P">Мы ответим на все ваши вопросы!</h2>
 
-        <div className="modal-form-inputs">
-          <textarea
-            name=""
-            id=""
-            className="modal-form-textarea"
-            required
-          ></textarea>
-          <div className="modal-form-input-div">
-            <MdEmail />
+        <div className="modal-form-inputsP">
+          <div className="modal-form-input-divP">
+            <FaPhoneVolume />
             <input
-              type="email"
-              className="modal-form-input"
-              placeholder="Ваш email"
+              type="tel"
+              className="modal-form-inputP"
+              placeholder="Ваш телефон"
               required
             />
           </div>
         </div>
 
-        <div className="modal-form-text">
+        <div className="modal-form-textP">
           <input
             type="checkbox"
             name=""
             id=""
-            className="modal-form-checkbox"
+            className="modal-form-checkboxP"
             required
             defaultChecked
           />{" "}
@@ -48,21 +46,21 @@ function ModalForm({ onClose }) {
           Федеральным законом от 27.07.2006 года №152-ФЗ «О персональных
           данных», на условиях и для целей, определенных{" "}
           <Link to="/rules">Политикой конфиденциальности.</Link>
-          <p className="modal-form-text-p">
+          <p className="modal-form-text-pP">
             Пожалуйста, заполните поля и нажмите на кнопку{" "}
             <IoIosArrowRoundDown />
           </p>
         </div>
 
-        <div className="modal-form-btns">
-          <button className="modal-form-btn-cancel" onClick={onClose}>
+        <div className="modal-form-btnsP">
+          <button className="modal-form-btn-cancelP" onClick={onClose}>
             ОТМЕНА
           </button>
-          <button className="modal-form-btn-submit">ОТПРАВИТЬ</button>
+          <button className="modal-form-btn-submitP">ПЕРЕЗВОНИТЕ МНЕ</button>
         </div>
       </form>
     </div>
   );
 }
 
-export default ModalForm;
+export default ModalPhone;

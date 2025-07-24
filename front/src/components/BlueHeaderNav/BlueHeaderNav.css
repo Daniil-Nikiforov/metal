@@ -1,6 +1,8 @@
 .blue-header-nav {
   height: 50px;
-  background-color: rgba(52, 152, 219, 0.85);
+  /* background-color: rgba(52, 152, 219, 0.85); */
+  /* background-color: #d4af37; */
+  background-color: #fff;
   text-align: center;
   width: 100%;
 }
@@ -21,9 +23,11 @@
   background: none;
   height: 100%;
   list-style: none;
-  color: rgba(255, 255, 255, 0.69);
+  /* color: rgba(255, 255, 255, 0.69); */
+  color: #000;
 }
 .blue-header-nav ul a:hover {
-  background-color: #578aac;
+  /* background-color: #578aac; */
+  background-color: #c12c2c;
   color: #fff;
 }

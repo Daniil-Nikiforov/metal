@@ -42,13 +42,13 @@
   position: absolute;
   height: 125px;
   width: 170px;
-  right: 0px;
+  right: 5px;
   bottom: 0px;
   animation: transUp 0.3s backwards;
 }
 @keyframes transUp {
   from {
-    bottom: -200px;
+    bottom: -300px;
   }
   to {
     bottom: 0px;
@@ -103,4 +103,15 @@
   box-shadow: 0 4px 17px 0 rgba(0, 0, 0, 0.14), 0 1px 32px 0 rgba(0, 0, 0, 0.12),
     0 2px 9px -1px rgba(0, 0, 0, 0.1);
   background: rgba(255, 255, 255, 1);
+}
+@keyframes transDown {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: -300px;
+  }
+}
+.modal-button-animation {
+  animation: transDown 0.3s backwards;
 }

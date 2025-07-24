@@ -9,6 +9,7 @@ import pool from "./db/db.js";
 import metalRoutes from "./routes/metalRoutes.js";
 import metalSingleRoute from "./routes/metalSingleRoute.js";
 import metalTypeRoutes from "./routes/metalTypeRoutes.js";
+import allMetalsRoute from "./routes/allMetalsRoute.js";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ const __dirname = path.resolve();
 app.use("/api/metals", metalRoutes);
 app.use("/api", metalTypeRoutes);
 app.use("/api/metal", metalSingleRoute);
+app.use("/api/get-all-metals", allMetalsRoute);
 
 app.listen(PORT, () => {
   console.log("server is running on 3000 port");
