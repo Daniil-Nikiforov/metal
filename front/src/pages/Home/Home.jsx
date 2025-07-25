@@ -13,6 +13,7 @@ function Home() {
   const [loading, setLoading] = useState(true);
   let cvetnoiMetal = null;
   let chernyMetal = null;
+  let nershavMetal = null;
   // let aluminiMetal = null;
   // let bronzaMetal = null;
   // let medMetal = null;
@@ -37,6 +38,9 @@ function Home() {
   if (allMetals && allMetals.length > 1) {
     cvetnoiMetal = allMetals.filter((item) => item.sub_type == "cvetnoi");
     chernyMetal = allMetals.filter((item) => item.sub_type == "chernyi");
+    nershavMetal = allMetals.filter(
+      (item) => item.sub_type == "nerzhaveyuschaja-stal"
+    );
     // aluminiMetal = allMetals.filter((item) => item.main_type == "alumini");
     // bronzaMetal = allMetals.filter((item) => item.main_type == "bronza");
     // medMetal = allMetals.filter((item) => item.main_type == "med");
@@ -92,6 +96,7 @@ function Home() {
         </section>
         <MetalTable metals={cvetnoiMetal} />
         <MetalTable metals={chernyMetal} />
+        <MetalTable metals={nershavMetal} />
         <YandexMap />
       </div>
     );

@@ -81,7 +81,7 @@ export const allLinks = [
       {
         id: 0,
         name: "Нержавеющая сталь",
-        url: "/nerzhaveyuschaja-stal",
+        url: "/metal-list/nerzhaveyuschaja-stal",
       },
     ],
   },
