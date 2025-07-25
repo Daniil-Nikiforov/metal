@@ -8,15 +8,21 @@ import "./MetalPage.css";
 import { ModalContext } from "../../context/ModalContext.jsx";
 import parser from "html-react-parser";
 import { fetchSingleMetal } from "../../api/metalApi.js";
+import * as cheerio from "cheerio";
 
 function MetalPage() {
   const { name } = useParams();
   const [metal, setMetal] = useState(null);
+  const [htmlMetalContent, setHtmlMetalContent] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const { openModal } = useContext(ModalContext);
 
   const location = useLocation();
+
+  let cher = null;
+  let firstTd = null;
+  let addToFirstTdPrice = null;
 
   useEffect(() => {
     // const fetchMetal = () => {
@@ -49,7 +55,9 @@ function MetalPage() {
       window.scrollTo(0, 0);
       try {
         const response = await fetchSingleMetal(name);
-        setMetal(response.data[0]);
+        const data = await response.data[0];
+        setMetal(await data);
+        setHtmlMetalContent(await data.html_content);
         setLoading(false);
       } catch (error) {
         console.error("Ошибка загрузки:", error);
@@ -58,6 +66,25 @@ function MetalPage() {
     };
     loadData();
   }, [name]);
+  //console.log(htmlMetalContent);
+  //console.log(htmlMetalContent);
+  //Добавить колонку в самый верх цена, в каждом tr добавить колонку колво штук и купить
+  const madeHtml = () => {
+    if (metal && metal?.html_content.length > 0) {
+      //console.log(htmlMetalContent);
+      cher = cheerio.load(metal.html_content);
+
+      firstTd = cher("tr").first();
+      addToFirstTdPrice = cher('td:contains("Диаметр")');
+      //addToFirstTdPrice.text("Цена");
+      //firstTd = firstTd.append(`<td>${addToFirstTdPrice.html()}</td>`);
+      firstTd = firstTd.append(`<td>Цена</td>`);
+      cher("tr").first().html(firstTd.html());
+      cher.html(cher.html().replaceAll(`{" "}`, ""));
+      //console.log(firstTd.html());
+      //console.log(cher.html());
+    }
+  };
 
   if (loading) {
     return (
@@ -76,6 +103,7 @@ function MetalPage() {
       </div>
     );
   } else {
+    madeHtml();
     return (
       <div className="metal-page">
         <MainHeader />
@@ -111,8 +139,14 @@ function MetalPage() {
               </button>
             </div>
 
-            <div className="matal-page-content-description">
-              {parser(metal.html_content.replaceAll(`{" "}`, ""))}
+            <div
+              dangerouslySetInnerHTML={{
+                __html: cher.html(),
+              }}
+              className="matal-page-content-description"
+            >
+              {/* {parser(metal.html_content.replaceAll(`{" "}`, ""))} */}
+              {/* {parser(cher.html())} */}
             </div>
           </div>
         </MainContentSection>
