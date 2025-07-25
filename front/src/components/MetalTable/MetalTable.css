@@ -3,13 +3,13 @@
   width: 100%;
   margin: 0 auto;
   margin-bottom: 10px;
-  border: solid 1px #aab7c1;
+  border: solid 1px #c12c2c;
   overflow: hidden;
 }
 .metal-table-tabs {
   max-width: 1070px;
   width: 100%;
-  background-color: rgba(131, 139, 149, 0.85);
+  background-color: #c12c2c;
   height: 39px;
 }
 .metal-table-tab {
@@ -33,11 +33,11 @@
   background: #fff;
   display: grid;
   grid-template-columns: repeat(4, minmax(auto, 250px));
-  row-gap: 40px;
+  row-gap: 5px;
   column-gap: 10px;
   margin: 0 auto;
   justify-content: center;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
 }
 .active-tab {
   transition: background-color, color 0.2s ease;
@@ -47,20 +47,24 @@
 .metal-table-item {
   max-width: 250px;
   width: 100%;
-  max-height: 127px;
-  height: 100%;
+  height: 170px;
   transition: all 0.3s ease;
+  overflow: hidden;
 }
 .metal-table-item:hover {
   filter: brightness(80%);
 }
 .metal-table-item-img {
+  display: block;
   width: 100%;
+  max-height: 127px;
   height: 100%;
+  margin-bottom: 5px;
 }
 .metal-table-item-img img {
-  width: 100%;
+  max-height: 127px;
   height: 100%;
+  width: 100%;
 }
 .metal-table-item-name {
   text-decoration: none;

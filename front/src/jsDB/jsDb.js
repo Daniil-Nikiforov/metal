@@ -49,27 +49,27 @@ export const allLinks = [
       {
         id: 0,
         name: "Специальные стали и сплавы",
-        url: "/s",
+        url: "/specialnye-stali-i-splavy",
       },
       {
         id: 1,
         name: "Листовой прокат",
-        url: "/l",
+        url: "/listovoi-prokat",
       },
       {
         id: 2,
         name: "Сортовой прокат",
-        url: "/sor",
+        url: "/sortovoi-prokat",
       },
       {
         id: 3,
         name: "Детали трубопровода",
-        url: "/d",
+        url: "/detali-truboprovoda",
       },
       {
         id: 4,
         name: "Трубный прокат",
-        url: "/t",
+        url: "/trubnyi-prokat",
       },
     ],
   },
@@ -81,7 +81,7 @@ export const allLinks = [
       {
         id: 0,
         name: "Нержавеющая сталь",
-        url: "/n",
+        url: "/nerzhaveyuschaja-stal",
       },
     ],
   },
