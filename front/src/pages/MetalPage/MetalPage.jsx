@@ -9,6 +9,8 @@ import { ModalContext } from "../../context/ModalContext.jsx";
 import parser from "html-react-parser";
 import { fetchSingleMetal } from "../../api/metalApi.js";
 import * as cheerio from "cheerio";
+import AddToBasket from "../../components/AddToBucket/AddToBasket.jsx";
+import { renderToString } from "react-dom/server";
 
 function MetalPage() {
   const { name } = useParams();
@@ -23,6 +25,9 @@ function MetalPage() {
   let cher = null;
   let firstTd = null;
   let addToFirstTdPrice = null;
+  let allTrWherePrice = null;
+
+  let addToBasketHtml = renderToString(<AddToBasket />);
 
   useEffect(() => {
     // const fetchMetal = () => {
@@ -66,23 +71,26 @@ function MetalPage() {
     };
     loadData();
   }, [name]);
-  //console.log(htmlMetalContent);
-  //console.log(htmlMetalContent);
+
   //Добавить колонку в самый верх цена, в каждом tr добавить колонку колво штук и купить
   const madeHtml = () => {
     if (metal && metal?.html_content.length > 0) {
       //console.log(htmlMetalContent);
       cher = cheerio.load(metal.html_content);
 
-      firstTd = cher("tr").first();
-      addToFirstTdPrice = cher('td:contains("Диаметр")');
-      //addToFirstTdPrice.text("Цена");
-      //firstTd = firstTd.append(`<td>${addToFirstTdPrice.html()}</td>`);
-      firstTd = firstTd.append(`<td>Цена</td>`);
-      cher("tr").first().html(firstTd.html());
+      //получаем первую строку каждой таблицы если у нее не класс n
+      firstTd = cher("table:not(.n) tr:first-child");
+      //получаем каждую строчку с товаром
+      allTrWherePrice = cher(
+        "table:not(.n) tr:not(:first-child):has(td:not([colspan])):not([rowspan])"
+      );
+      //добавляем к каждой строчке с товаром корзину
+      allTrWherePrice = allTrWherePrice.append(`<td>${addToBasketHtml}</td>`);
+      //добавляем к первой строчке корзину
+      firstTd = firstTd.append(`<td>Корзина</td>`);
+      //изменяем весь html
+      cher("table:not(.n) tr").first().html(firstTd.html());
       cher.html(cher.html().replaceAll(`{" "}`, ""));
-      //console.log(firstTd.html());
-      //console.log(cher.html());
     }
   };
 
@@ -141,7 +149,7 @@ function MetalPage() {
 
             <div
               dangerouslySetInnerHTML={{
-                __html: cher.html(),
+                __html: cher.html().replaceAll(`{" "}`, ""),
               }}
               className="matal-page-content-description"
             >

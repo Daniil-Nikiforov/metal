@@ -14,6 +14,9 @@ function Home() {
   let cvetnoiMetal = null;
   let chernyMetal = null;
   let nershavMetal = null;
+  let setkaMetal = null;
+  let pervMetal = null;
+  let shtokMetal = null;
   // let aluminiMetal = null;
   // let bronzaMetal = null;
   // let medMetal = null;
@@ -40,6 +43,14 @@ function Home() {
     chernyMetal = allMetals.filter((item) => item.sub_type == "chernyi");
     nershavMetal = allMetals.filter(
       (item) => item.sub_type == "nerzhaveyuschaja-stal"
+    );
+    setkaMetal = allMetals.filter((item) => item.sub_type == "setka");
+    pervMetal = allMetals.filter(
+      (item) => item.sub_type == "perforirovannyi-list"
+    );
+    shtokMetal = allMetals.filter(
+      (item) =>
+        item.sub_type == "truby-honingovannye-besshovnye-i-shtoki-hromirovannye"
     );
     // aluminiMetal = allMetals.filter((item) => item.main_type == "alumini");
     // bronzaMetal = allMetals.filter((item) => item.main_type == "bronza");
@@ -94,9 +105,14 @@ function Home() {
           <SliderHome />
           <GreyHeaderNav />
         </section>
-        <MetalTable metals={cvetnoiMetal} />
-        <MetalTable metals={chernyMetal} />
-        <MetalTable metals={nershavMetal} />
+        <div className="home-page-tables">
+          <MetalTable metals={cvetnoiMetal} />
+          <MetalTable metals={chernyMetal} />
+          <MetalTable metals={nershavMetal} />
+          <MetalTable metals={setkaMetal} />
+          <MetalTable metals={pervMetal} />
+          <MetalTable metals={shtokMetal} />
+        </div>
         <YandexMap />
       </div>
     );

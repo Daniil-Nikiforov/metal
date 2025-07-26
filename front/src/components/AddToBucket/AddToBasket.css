@@ -1,0 +1,49 @@
+.add-to-basket-container {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.add-to-basket-input {
+  display: block;
+  min-width: 35px;
+  max-width: 50px;
+  min-height: 21px;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding: 0.5px;
+  padding-left: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.add-to-basket-btn {
+  display: block;
+  min-width: 23px;
+  max-height: 23.6px;
+  background-color: #000;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  transition: all 0.1s ease;
+}
+.add-to-basket-btn:hover {
+  background-color: #fff;
+}
+.add-to-basket-btn:hover.add-to-basket-btn svg {
+  fill: #000;
+  width: 23px;
+  height: 23px;
+}
+.add-to-basket-btn svg {
+  fill: #fff;
+  width: 23px;
+  height: 23px;
+}
