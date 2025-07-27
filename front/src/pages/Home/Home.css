@@ -1,4 +1,5 @@
 .home-page {
+  max-width: 100vw;
 }
 .home-page-section {
   background-image: url("../../assets/slide1.jpg");

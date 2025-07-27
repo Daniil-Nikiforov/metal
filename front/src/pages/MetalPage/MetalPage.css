@@ -112,3 +112,9 @@
   margin-bottom: 10px;
   font-size: 21px;
 }
+.matal-page-content-description {
+  overflow: auto;
+}
+.matal-page-content-description-tables {
+  overflow: auto;
+}

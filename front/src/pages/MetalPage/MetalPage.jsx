@@ -11,11 +11,11 @@ import { fetchSingleMetal } from "../../api/metalApi.js";
 import * as cheerio from "cheerio";
 import AddToBasket from "../../components/AddToBucket/AddToBasket.jsx";
 import { renderToString } from "react-dom/server";
+import TableForTypes from "../../components/TableForTypes/TableForTypes.jsx";
 
 function MetalPage() {
   const { name } = useParams();
   const [metal, setMetal] = useState(null);
-  const [htmlMetalContent, setHtmlMetalContent] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const { openModal } = useContext(ModalContext);
@@ -26,6 +26,8 @@ function MetalPage() {
   let firstTd = null;
   let addToFirstTdPrice = null;
   let allTrWherePrice = null;
+  let withoutTables = null;
+  let resultHtml = [];
 
   let addToBasketHtml = renderToString(<AddToBasket />);
 
@@ -62,7 +64,6 @@ function MetalPage() {
         const response = await fetchSingleMetal(name);
         const data = await response.data[0];
         setMetal(await data);
-        setHtmlMetalContent(await data.html_content);
         setLoading(false);
       } catch (error) {
         console.error("Ошибка загрузки:", error);
@@ -93,6 +94,33 @@ function MetalPage() {
       cher.html(cher.html().replaceAll(`{" "}`, ""));
     }
   };
+  const madeReactFromHtml = () => {
+    if (metal && metal?.html_content.length > 0) {
+      cher = cheerio.load(metal.html_content);
+
+      cher("table").each((tableIndex, table) => {
+        const tableClass = tableIndex;
+        resultHtml[tableClass] = [];
+
+        cher(table)
+          .find("tr")
+          .each((rowIndex, row) => {
+            const rowData = [];
+
+            cher(row)
+              .find("td")
+              .each((cellIndex, cell) => {
+                rowData[cellIndex] = cher(cell).text().trim();
+              });
+            resultHtml[tableClass].push(rowData);
+          });
+      });
+
+      resultHtml = Array(resultHtml);
+      console.log(resultHtml);
+      cher('table:not([class*="n"])').remove();
+    }
+  };
 
   if (loading) {
     return (
@@ -111,7 +139,9 @@ function MetalPage() {
       </div>
     );
   } else {
-    madeHtml();
+    //madeHtml();
+    madeReactFromHtml();
+
     return (
       <div className="metal-page">
         <MainHeader />
@@ -155,6 +185,11 @@ function MetalPage() {
             >
               {/* {parser(metal.html_content.replaceAll(`{" "}`, ""))} */}
               {/* {parser(cher.html())} */}
+            </div>
+            <div className="matal-page-content-description-tables">
+              {resultHtml.map((table) =>
+                table.map((t) => <TableForTypes table={t} />)
+              )}
             </div>
           </div>
         </MainContentSection>

@@ -1,7 +1,7 @@
 import React from "react";
 import "./HeaderHome.css";
 import logoImg from "../../assets/logo.png";
-import logoImgWhite from "../../assets/logoWhite.png";
+import logoImgWhite from "../../assets/logoV2.jpg";
 
 function HeaderHome() {
   return (

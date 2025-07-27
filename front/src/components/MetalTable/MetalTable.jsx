@@ -13,8 +13,6 @@ function MetalTable(props) {
       .sort((a, b) => a.id - b.id),
   });
 
-  console.log(activeTab);
-
   return (
     <div className="metal-table-container">
       <div className="metal-table-tabs">

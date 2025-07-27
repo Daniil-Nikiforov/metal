@@ -54,7 +54,7 @@ function SliderHome() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4500,
     arrows: 1,
     nextArrow: <NextArrow />,
@@ -65,7 +65,7 @@ function SliderHome() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4500,
   };
   const [v, setV] = useState(false);

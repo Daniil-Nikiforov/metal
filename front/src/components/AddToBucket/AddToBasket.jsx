@@ -2,7 +2,7 @@ import React from "react";
 import "./AddToBasket.css";
 import { FaShoppingBasket } from "react-icons/fa";
 
-function AddToBasket() {
+function AddToBasket({ add }) {
   return (
     <div className="add-to-basket-container">
       <input
@@ -12,7 +12,7 @@ function AddToBasket() {
         defaultValue={1}
       />
       <div>шт</div>
-      <button className="add-to-basket-btn">
+      <button className="add-to-basket-btn" onClick={add}>
         <FaShoppingBasket />
       </button>
     </div>

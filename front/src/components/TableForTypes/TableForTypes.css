@@ -1,0 +1,16 @@
+.table-for-types-container {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 14px;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+.table-for-types-container-row {
+  width: 100%;
+  height: 100%;
+}
+.table-for-types-container-col {
+  padding: 10px;
+  border: solid 1px #ccc;
+  /* border-right: 1px solid black; */
+}
