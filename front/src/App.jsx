@@ -13,6 +13,7 @@ import MetalList from "./pages/MetalList/MetalList";
 import MetalListType from "./pages/MetalListType/MetalListType";
 import { ModalButtonProvider } from "./context/ModalButtonContext";
 import { ModalPhoneProvider } from "./context/ModalPhoneContext";
+import BasketPage from "./pages/BasketPage/BasketPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             <Route path="/metals/:name" element={<MetalPage />} />
             <Route path="/metal-list/:name" element={<MetalList />} />
             <Route path="/:name" element={<MetalListType />} />
+            <Route path="/basket" element={<BasketPage />} />
           </Routes>
         </ModalButtonProvider>
       </ModalPhoneProvider>

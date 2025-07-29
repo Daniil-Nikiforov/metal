@@ -1,0 +1,20 @@
+.basket-btn-div {
+  background: #fff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  transition: all 0.1s ease;
+}
+.basket-btn-div:hover {
+  background: rgb(0, 0, 0);
+}
+.basket-btn-div:hover.basket-btn-div svg {
+  fill: #fff;
+}
+.basket-btn-div svg {
+  fill: #000;
+  width: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

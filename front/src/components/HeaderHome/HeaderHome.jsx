@@ -2,6 +2,7 @@ import React from "react";
 import "./HeaderHome.css";
 import logoImg from "../../assets/logo.png";
 import logoImgWhite from "../../assets/logoV2.jpg";
+import BasketBtn from "../BasketBtn/BasketBtn";
 
 function HeaderHome() {
   return (
@@ -37,6 +38,7 @@ function HeaderHome() {
             >
               zakaz@spbmetalloprokat.ru
             </a>
+            <BasketBtn />
           </div>
         </p>
       </div>
