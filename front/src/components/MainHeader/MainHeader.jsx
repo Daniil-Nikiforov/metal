@@ -5,7 +5,7 @@ import { Link } from "react-router";
 import { ModalContext } from "../../context/ModalContext";
 import DropDownGreyHeader from "../DropDownGreyHeader/DropDownGreyHeader";
 import { allLinks } from "../../jsDB/jsDb.js";
-
+import { FaShoppingCart } from "react-icons/fa";
 function MainHeader(props) {
   const { openModal } = useContext(ModalContext);
 
@@ -21,16 +21,6 @@ function MainHeader(props) {
 
           <div className="main-header-gray-nav">
             <ul>
-              <Link
-                to="/"
-                className={`${
-                  props.tab == "price"
-                    ? "main-header-current-tab"
-                    : "main-header-a"
-                }`}
-              >
-                ПРАЙСЫ
-              </Link>
               <Link
                 to="/uslugi"
                 className={`${
@@ -71,6 +61,9 @@ function MainHeader(props) {
                 onClick={() => openModal()}
               >
                 ЗАКАЗАТЬ
+              </Link>
+              <Link to="/basket" className="main-header-a">
+                <FaShoppingCart className="link-basket-main" />
               </Link>
             </ul>
           </div>

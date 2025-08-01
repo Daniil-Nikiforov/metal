@@ -38,7 +38,6 @@ function HeaderHome() {
             >
               zakaz@spbmetalloprokat.ru
             </a>
-            <BasketBtn />
           </div>
         </p>
       </div>

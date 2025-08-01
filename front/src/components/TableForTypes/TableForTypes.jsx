@@ -11,11 +11,24 @@ function TableForTypes({ table }) {
         i === 100000 ? (
           ""
         ) : (
-          <tr key={i} className="table-for-types-container-row">
+          <tr
+            key={i}
+            className={
+              i == 0
+                ? `table-for-types-container-row col-item-head`
+                : `table-for-types-container-row`
+            }
+          >
             <td className="table-for-types-container-col">
               {/* {row.map((col, j) => ({ col }))} */}
               {row.map((col, j) => (
-                <div className="table-for-types-container-col-item">
+                <div
+                  className={
+                    i == 0
+                      ? `table-for-types-container-col-item col-item-head-text`
+                      : `table-for-types-container-col-item`
+                  }
+                >
                   {i == 0 ? col : `${col}`}
                 </div>
               ))}

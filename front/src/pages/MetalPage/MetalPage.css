@@ -53,7 +53,7 @@
   max-width: 100%;
 }
 .metal-page-content-btn-zayavka {
-  grid-area: "button";
+  /* grid-area: "button";
   border-radius: 9px;
   color: #36454a;
   background: linear-gradient(to top, #bdd8e1, #bdd8e1 50%, #cbe3eb 50%);
@@ -70,11 +70,28 @@
   outline: none;
   border: none;
   line-height: 20px;
+  cursor: pointer; */
+  display: inline-block;
+  padding: 24px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  border: none;
+  border-radius: 8px;
+
+  letter-spacing: 1px;
   cursor: pointer;
-  transition: filter 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
 }
 .metal-page-content-btn-zayavka:hover {
-  filter: brightness(90%);
+  filter: brightness(1.2);
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 .matal-page-content-description p {
   line-height: 22px;

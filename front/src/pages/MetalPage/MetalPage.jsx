@@ -98,7 +98,7 @@ function MetalPage() {
     if (metal && metal?.html_content.length > 0) {
       cher = cheerio.load(metal.html_content);
 
-      cher("table").each((tableIndex, table) => {
+      cher("table:not([class*='n'])").each((tableIndex, table) => {
         const tableClass = tableIndex;
         resultHtml[tableClass] = [];
 
@@ -153,11 +153,11 @@ function MetalPage() {
                   Товар
                 </a>
               </li>
-              <li className="metal-page-content-ul-li">
+              {/* <li className="metal-page-content-ul-li">
                 <a href="" className="metal-page-content-ul-li-a">
                   Прайсы
                 </a>
-              </li>
+              </li> */}
             </ul>
 
             <div className="matal-page-content-img-button">

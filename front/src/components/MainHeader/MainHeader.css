@@ -20,6 +20,11 @@
   width: 336.5px;
   height: 64.5px;
 }
+.link-basket-main {
+  fill: #ffffffb0;
+  width: 20px;
+  height: 20px;
+}
 .main-header-section-first {
   background-color: rgba(0, 0, 0, 0.57);
   height: 114.5px;

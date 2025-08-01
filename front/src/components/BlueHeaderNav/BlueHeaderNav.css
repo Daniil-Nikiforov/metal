@@ -31,3 +31,11 @@
   background-color: #fff;
   color: #000;
 }
+.blue-header-nav ul a:hover .link-basket {
+  fill: #000;
+}
+.link-basket {
+  fill: #fff;
+  width: 20px;
+  height: 20px;
+}

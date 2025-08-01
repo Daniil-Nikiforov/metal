@@ -1,14 +1,13 @@
 .basket-btn-div {
-  background: #fff;
   padding: 5px 15px;
   border-radius: 5px;
   transition: all 0.1s ease;
 }
 .basket-btn-div:hover {
-  background: rgb(0, 0, 0);
+  filter: brightness(90%);
 }
 .basket-btn-div:hover.basket-btn-div svg {
-  fill: #fff;
+  filter: brightness(90%);
 }
 .basket-btn-div svg {
   fill: #000;
