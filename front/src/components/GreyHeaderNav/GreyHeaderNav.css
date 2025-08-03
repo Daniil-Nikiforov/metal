@@ -5,6 +5,7 @@
   text-align: center;
   width: 100%;
   margin-bottom: 20px;
+  box-sizing: border-box;
 }
 .grey-header-nav ul {
   margin: 0;
@@ -14,6 +15,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .grey-header-nav {
+    height: 200px;
+    box-sizing: border-box;
+  }
+  .grey-header-nav ul {
+    flex-direction: column;
+    box-sizing: border-box;
+  }
 }
 .grey-header-nav a {
   /* display: flex;

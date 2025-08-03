@@ -62,7 +62,7 @@ function GetBasketTable() {
               <div className="item-specs">
                 {item?.headers.slice(1).map((header, i) => {
                   if (
-                    header.toLowerCase() === "цена по запросу" ||
+                    header.toLowerCase().trim().includes("цена") ||
                     header.toLowerCase() === "цена за тонну (руб)" ||
                     header.toLowerCase() === "цена за 1 тонну" ||
                     header.toLowerCase() === "цена за тонну руб."

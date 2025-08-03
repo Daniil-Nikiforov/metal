@@ -15,6 +15,15 @@
   max-width: 333px;
   width: 100%;
 }
+@media (max-width: 768px) {
+  .metal-list-page-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(auto, 333px));
+    gap: 10px;
+    width: 100%;
+    justify-content: start;
+  }
+}
 .metal-list-page-content-metal-img-link {
   display: block;
   max-width: 333px;

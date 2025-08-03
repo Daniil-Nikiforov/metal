@@ -56,7 +56,7 @@ function SliderHome() {
     slidesToScroll: 1,
     autoplay: false,
     autoplaySpeed: 4500,
-    arrows: 1,
+    arrows: 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
@@ -80,181 +80,90 @@ function SliderHome() {
         setV(false);
       }}
     >
-      {v ? (
-        <Slider {...settings} className="slider-home-slider">
-          <div className="slider-home-div" id="slider-home-div-1">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Компания ООО "Союзметалл"</h2>
-                <p style={{ fontSize: "18px" }}>
-                  В нашей компании вы можете купить металлопрокат, оптом и в
-                  розницу, любых марок стали и типоразмеров!
-                  <br /> Мы предлагаем доступные цены на металлопрокат, быструю
-                  доставку, услуги металлообработки. Качество <br />
-                  реализуемой продукции подтверждено сертификатами.
-                </p>
-                <a href=""></a>
-              </div>
+      <Slider {...settingsNoArrows} className="slider-home-slider">
+        <div className="slider-home-div" id="slider-home-div-1">
+          <div className="slider-home-div-flex">
+            <div className="slider-home-black-block">
+              <h2>Компания ООО "Союзметалл"</h2>
+              <p>
+                В нашей компании вы можете купить металлопрокат, оптом и в
+                розницу, любых марок стали и типоразмеров!
+                <br /> Мы предлагаем доступные цены на металлопрокат, быструю
+                доставку, услуги металлообработки. Качество <br />
+                реализуемой продукции подтверждено сертификатами.
+              </p>
+              <a href=""></a>
             </div>
           </div>
+        </div>
 
-          <div className="slider-home-div" id="slider-home-div-2">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Штоки хромированные</h2>
-                <p>
-                  ООО «СОЮЗМЕТАЛЛ» - крупный поставщик ХОНИНГОВАННЫХ ТРУБ и
-                  ХРОМИРОВАННЫХ ШТОКОВ для производства и ремонта
-                  гидроцилиндров.
-                </p>
-                <a href="">Заказать</a>
-              </div>
+        <div className="slider-home-div" id="slider-home-div-2">
+          <div className="slider-home-div-flex">
+            <div className="slider-home-black-block">
+              <h2>Штоки хромированные</h2>
+              <p>
+                ООО «СОЮЗМЕТАЛЛ» - крупный поставщик ХОНИНГОВАННЫХ ТРУБ и
+                ХРОМИРОВАННЫХ ШТОКОВ для производства и ремонта гидроцилиндров.
+              </p>
+              <a href="">Заказать</a>
             </div>
           </div>
+        </div>
 
-          <div className="slider-home-div" id="slider-home-div-3">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Сетка от грызунов</h2>
-                <p>
-                  Компания ООО "Союзметалл" предлагает сетку сварную
-                  оцинкованную, ячейка 6х6мм, проволока 0.6мм. Размер рулона
-                  1х15м. Для защиты от грызунов. Самовывоз и Доставка.
-                </p>
-                <a href="">Заказать</a>
-              </div>
+        <div className="slider-home-div" id="slider-home-div-3">
+          <div className="slider-home-div-flex">
+            <div className="slider-home-black-block">
+              <h2>Сетка от грызунов</h2>
+              <p>
+                Компания ООО "Союзметалл" предлагает сетку сварную оцинкованную,
+                ячейка 6х6мм, проволока 0.6мм. Размер рулона 1х15м. Для защиты
+                от грызунов. Самовывоз и Доставка.
+              </p>
+              <a href="">Заказать</a>
             </div>
           </div>
+        </div>
 
-          <div className="slider-home-div" id="slider-home-div-4">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Лист алюминиевый рифлёный</h2>
-                <p>
-                  Компания "СОЮЗМЕТАЛЛ" предлагает широкий ассортимент
-                  АЛЮМИНИЕВОГО ЛИСТА КВИНТЕТ от 1 листа.
-                </p>
-                <a href="">Заказать</a>
-              </div>
+        <div className="slider-home-div" id="slider-home-div-4">
+          <div className="slider-home-div-flex">
+            <div className="slider-home-black-block">
+              <h2>Лист алюминиевый рифлёный</h2>
+              <p>
+                Компания "СОЮЗМЕТАЛЛ" предлагает широкий ассортимент
+                АЛЮМИНИЕВОГО ЛИСТА КВИНТЕТ от 1 листа.
+              </p>
+              <a href="">Заказать</a>
             </div>
           </div>
+        </div>
 
-          <div className="slider-home-div" id="slider-home-div-5">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Перфорированный лист</h2>
-                <p>
-                  Компания "СОЮЗМЕТАЛЛ" предлагает широкий выбор
-                  ПЕРФОРИРОВАННОГО АЛЮМИНИЕВОГО ЛИСТА по выгодной цене, как
-                  оптом так и в розницу
-                </p>
-                <a href="">Заказать</a>
-              </div>
+        <div className="slider-home-div" id="slider-home-div-5">
+          <div className="slider-home-div-flex">
+            <div className="slider-home-black-block">
+              <h2>Перфорированный лист</h2>
+              <p>
+                Компания "СОЮЗМЕТАЛЛ" предлагает широкий выбор ПЕРФОРИРОВАННОГО
+                АЛЮМИНИЕВОГО ЛИСТА по выгодной цене, как оптом так и в розницу
+              </p>
+              <a href="">Заказать</a>
             </div>
           </div>
+        </div>
 
-          <div className="slider-home-div" id="slider-home-div-6">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Лист из нержавеющей стали</h2>
-                <p>
-                  Компания "СОЮЗМЕТАЛЛ" предлагает широкий ассортимент
-                  НЕРЖАВЕЮЩЕГО ЛИСТА из различных сплавов, со склада в
-                  Санкт-Петербурге по выгодной цене, как оптом так и в розницу.
-                </p>
-                <a href="">Заказать</a>
-              </div>
+        <div className="slider-home-div" id="slider-home-div-6">
+          <div className="slider-home-div-flex">
+            <div className="slider-home-black-block">
+              <h2>Лист из нержавеющей стали</h2>
+              <p>
+                Компания "СОЮЗМЕТАЛЛ" предлагает широкий ассортимент
+                НЕРЖАВЕЮЩЕГО ЛИСТА из различных сплавов, со склада в
+                Санкт-Петербурге по выгодной цене, как оптом так и в розницу.
+              </p>
+              <a href="">Заказать</a>
             </div>
           </div>
-        </Slider>
-      ) : (
-        <Slider {...settingsNoArrows} className="slider-home-slider">
-          <div className="slider-home-div" id="slider-home-div-1">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Компания ООО "Союзметалл"</h2>
-                <p style={{ fontSize: "18px" }}>
-                  В нашей компании вы можете купить металлопрокат, оптом и в
-                  розницу, любых марок стали и типоразмеров!
-                  <br /> Мы предлагаем доступные цены на металлопрокат, быструю
-                  доставку, услуги металлообработки. Качество <br />
-                  реализуемой продукции подтверждено сертификатами.
-                </p>
-                <a href=""></a>
-              </div>
-            </div>
-          </div>
-
-          <div className="slider-home-div" id="slider-home-div-2">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Штоки хромированные</h2>
-                <p>
-                  ООО «СОЮЗМЕТАЛЛ» - крупный поставщик ХОНИНГОВАННЫХ ТРУБ и
-                  ХРОМИРОВАННЫХ ШТОКОВ для производства и ремонта
-                  гидроцилиндров.
-                </p>
-                <a href="">Заказать</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="slider-home-div" id="slider-home-div-3">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Сетка от грызунов</h2>
-                <p>
-                  Компания ООО "Союзметалл" предлагает сетку сварную
-                  оцинкованную, ячейка 6х6мм, проволока 0.6мм. Размер рулона
-                  1х15м. Для защиты от грызунов. Самовывоз и Доставка.
-                </p>
-                <a href="">Заказать</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="slider-home-div" id="slider-home-div-4">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Лист алюминиевый рифлёный</h2>
-                <p>
-                  Компания "СОЮЗМЕТАЛЛ" предлагает широкий ассортимент
-                  АЛЮМИНИЕВОГО ЛИСТА КВИНТЕТ от 1 листа.
-                </p>
-                <a href="">Заказать</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="slider-home-div" id="slider-home-div-5">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Перфорированный лист</h2>
-                <p>
-                  Компания "СОЮЗМЕТАЛЛ" предлагает широкий выбор
-                  ПЕРФОРИРОВАННОГО АЛЮМИНИЕВОГО ЛИСТА по выгодной цене, как
-                  оптом так и в розницу
-                </p>
-                <a href="">Заказать</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="slider-home-div" id="slider-home-div-6">
-            <div className="slider-home-div-flex">
-              <div className="slider-home-black-block">
-                <h2>Лист из нержавеющей стали</h2>
-                <p>
-                  Компания "СОЮЗМЕТАЛЛ" предлагает широкий ассортимент
-                  НЕРЖАВЕЮЩЕГО ЛИСТА из различных сплавов, со склада в
-                  Санкт-Петербурге по выгодной цене, как оптом так и в розницу.
-                </p>
-                <a href="">Заказать</a>
-              </div>
-            </div>
-          </div>
-        </Slider>
-      )}
+        </div>
+      </Slider>
     </div>
   );
 }

@@ -9,7 +9,7 @@ function HeaderHome() {
     <div className="header-home">
       <div className="header-home-grid">
         <div className="header-home-img">
-          <a href="/">
+          <a href="/" className="header-home-img-a">
             <img src={logoImgWhite} alt="logo" className="header-home-logo" />
           </a>
         </div>

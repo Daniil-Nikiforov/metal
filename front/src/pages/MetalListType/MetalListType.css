@@ -8,6 +8,17 @@
   width: 100%;
   justify-content: start;
 }
+@media (max-width: 768px) {
+  .metal-list-page-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 333px));
+    gap: 10px;
+    width: 100%;
+    justify-content: start;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+}
 .metal-list-page-content-metal {
   float: left;
   margin-bottom: 20px;

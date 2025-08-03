@@ -21,17 +21,34 @@ function TableForTypes({ table }) {
           >
             <td className="table-for-types-container-col">
               {/* {row.map((col, j) => ({ col }))} */}
-              {row.map((col, j) => (
-                <div
-                  className={
-                    i == 0
-                      ? `table-for-types-container-col-item col-item-head-text`
-                      : `table-for-types-container-col-item`
-                  }
-                >
-                  {i == 0 ? col : `${col}`}
-                </div>
-              ))}
+              {row.map(
+                (col, j) =>
+                  !col.toLowerCase().trim().includes("цена") && (
+                    <div
+                      className={
+                        i == 0
+                          ? `table-for-types-container-col-item col-item-head-text`
+                          : `table-for-types-container-col-item`
+                      }
+                    >
+                      {i == 0
+                        ? col.toLowerCase().trim().includes("цена") ||
+                          col.toLowerCase().trim() === "цена за тонну (руб)" ||
+                          col.toLowerCase().trim() === "цена за 1 тонну" ||
+                          col.toLowerCase().trim() === "цена за тонну руб." ||
+                          col.toLowerCase().trim() === "цена по запросу"
+                          ? null
+                          : col
+                        : col.toLowerCase().trim().includes("цена") ||
+                          col.toLowerCase().trim() === "цена за тонну (руб)" ||
+                          col.toLowerCase().trim() === "цена за 1 тонну" ||
+                          col.toLowerCase().trim() === "цена за тонну руб." ||
+                          col.toLowerCase().trim() === "цена по запросу"
+                        ? null
+                        : col}
+                    </div>
+                  )
+              )}
               <div className="table-for-types-container-col">
                 {i == 0 ? (
                   <div className="table-for-types-container-input">

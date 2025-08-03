@@ -34,6 +34,7 @@
   padding: 10px;
   background-color: rgba(26, 27, 31, 0.7);
   text-align: center;
+  overflow: hidden;
 }
 .slider-home-black-block h2 {
   font-size: 39px;
@@ -45,9 +46,19 @@
 }
 .slider-home-black-block p {
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 16px;
   color: #cbd5df;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+@media (max-width: 768px) {
+  .slider-home-black-block p {
+    visibility: hidden;
+  }
+  .slider-home-black-block a {
+    visibility: hidden;
+  }
 }
 .slider-home-black-block a {
   display: inline-block;

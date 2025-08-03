@@ -37,24 +37,27 @@ function YandexMap() {
       </div>
 
       <div className="yandex-footer">
-        <div className="yandex-footer-col1">2020 © ООО "Союзметалл"</div>
-        <div className="yandex-footer-col2">
-          г. Санкт-Петербург ул Бухарестская, д 24, к 2 лит А, оф 8
-          <br />
-          Тел:&nbsp;
-          <a
-            href="tel:+78126797730"
-            style={{ color: "#fff", fontWeight: "600" }}
-          >
-            +7 (812) 679-77-30
-          </a>
-          &nbsp; E-mail:&nbsp;
-          <a
-            href="mailto:zakaz@spbmetalloprokat.ru"
-            style={{ color: "#fff", fontWeight: "600" }}
-          >
-            zakaz@spbmetalloprokat.ru
-          </a>
+        <div className="yandex-footer-div">
+          <div className="yandex-footer-col1">2020 © ООО "Союзметалл"</div>
+          <div className="yandex-footer-col2">
+            г. Санкт-Петербург ул Бухарестская, д 24, к 2 лит А, оф 8
+            <br />
+            Тел:&nbsp;
+            <a
+              href="tel:+78126797730"
+              style={{ color: "#fff", fontWeight: "600" }}
+            >
+              +7 (812) 679-77-30
+            </a>
+            <br />
+            &nbsp; E-mail:&nbsp;
+            <a
+              href="mailto:zakaz@spbmetalloprokat.ru"
+              style={{ color: "#fff", fontWeight: "600" }}
+            >
+              zakaz@spbmetalloprokat.ru
+            </a>
+          </div>
         </div>
       </div>
     </div>

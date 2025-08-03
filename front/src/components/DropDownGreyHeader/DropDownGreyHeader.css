@@ -8,10 +8,18 @@
   height: 100%;
   list-style: none;
   color: #fff;
+  box-sizing: border-box;
 }
 .dropdown-button:hover {
   background-color: #fff;
   color: #000;
+}
+@media (max-width: 768px) {
+  .dropdown-button {
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+  }
 }
 .dropdown-content {
   position: absolute;
