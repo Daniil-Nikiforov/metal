@@ -47,6 +47,13 @@
   margin-bottom: 20px;
   max-width: 100%;
 }
+@media (max-width: 768px) {
+  .matal-page-content-img-button {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 10px;
+  }
+}
 .matal-page-content-img {
   grid-area: "img";
   display: block;

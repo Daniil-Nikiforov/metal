@@ -6,7 +6,10 @@
   text-align: center;
   width: 100%;
 }
-.blue-header-nav ul {
+.blue-header-nav button {
+  display: none;
+}
+.blue-header-nav-ul-pc {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -15,18 +18,81 @@
   justify-content: center;
   align-items: center;
 }
+.blue-header-nav-ul-mb {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .blue-header-nav-ul-mb.burger-open {
+  animation: openMenu 0.15s ease forwards;
+}
+.blue-header-nav-ul-mb.burger-close {
+  animation: closeMenu 0.15s ease forwards;
+}
+@keyframes openMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+@keyframes closeMenu {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+    visibility: hidden;
+  }
+} */
+
 @media (max-width: 768px) {
   .blue-header-nav {
-    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
-  .blue-header-nav ul {
+  .blue-header-nav button {
+    display: block;
+    border: none;
+    background: none;
+    width: 50px;
+    cursor: pointer;
+    height: 50px;
+  }
+  .blue-header-nav button svg {
+    fill: #fff;
+    width: 100%;
+    height: 100%;
+  }
+  .blue-header-nav-ul-mb {
     flex-direction: column;
     align-items: center;
+    height: 150px;
+  }
+  .blue-header-nav-ul-pc {
+    flex-direction: column;
+    align-items: center;
+    display: none;
   }
   .blue-header-nav a {
     width: 100%;
     box-sizing: border-box;
-    padding: 0 20px 0 20px;
+    padding: 0 30px 0 30px;
     justify-content: center;
     height: 100%;
   }
@@ -42,12 +108,16 @@
   /* color: rgba(255, 255, 255, 0.69); */
   color: #fff;
 }
-.blue-header-nav ul a:hover {
+.blue-header-nav-ul-mb a:hover {
+  background-color: #fff;
+  color: #000;
+}
+.blue-header-nav-ul-pc a:hover {
   /* background-color: #578aac; */
   background-color: #fff;
   color: #000;
 }
-.blue-header-nav ul a:hover .link-basket {
+.blue-header-nav-ul-pc a:hover .link-basket {
   fill: #000;
 }
 .link-basket {

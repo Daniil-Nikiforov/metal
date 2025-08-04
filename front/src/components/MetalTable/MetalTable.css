@@ -41,6 +41,9 @@
   padding-bottom: 20px;
 }
 @media (max-width: 768px) {
+  .metal-table-tabs {
+    height: 100%;
+  }
   .metal-table-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(auto, 250px));
