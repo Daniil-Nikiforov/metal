@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./GetBasketTable.css";
 import { load } from "cheerio";
+import { deleteCartItem } from "../../api/metalApi";
+import ModalNotification from "../ModalNotification/ModalNotification";
 
 function GetBasketTable() {
   const [cart, setCart] = useState([]);
+  const [notification, setNotification] = useState(null);
+
+  const showNotification = (message, type) => {
+    setNotification({ message, type });
+    setTimeout(() => {
+      setNotification(null);
+    }, 700);
+  };
   const loadCart = () => {
     const cartId = localStorage.getItem("cartId");
     if (cartId) {
@@ -53,6 +63,13 @@ function GetBasketTable() {
     // </div>
 
     <div className="basket-container">
+      {notification && (
+        <ModalNotification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
       <div className="basket-items">
         {cart.map((item, index) => (
           <div key={index} className="basket-item">
@@ -80,7 +97,6 @@ function GetBasketTable() {
                     );
                   }
 
-                  // Общий случай
                   return (
                     <div key={i} className="spec-row">
                       <span className="spec-name">{header}:</span>
@@ -89,8 +105,6 @@ function GetBasketTable() {
                   );
                 })}
               </div>
-
-              {/* Отдельно выводим цену, если она есть */}
             </div>
 
             <div className="item-quantity">
@@ -100,14 +114,26 @@ function GetBasketTable() {
               </div>
             </div>
 
-            <button className="item-remove">&times;</button>
+            <button
+              className="item-remove"
+              onClick={() => {
+                deleteCartItem(item.item_id);
+                setCart(cart.filter((p) => p.item_id !== item.item_id));
+                showNotification("Товар удален", "success");
+              }}
+            >
+              &times;
+            </button>
           </div>
         ))}
       </div>
-
-      <div className="basket-summary">
-        <button className="checkout-button">Оформить заказ</button>
-      </div>
+      {cart && cart.length >= 1 ? (
+        <div className="basket-summary">
+          <button className="checkout-button">Оформить заказ</button>
+        </div>
+      ) : (
+        <div style={{ fontSize: "20px", marginTop: "10px" }}>Корзина пуста</div>
+      )}
     </div>
   );
 }

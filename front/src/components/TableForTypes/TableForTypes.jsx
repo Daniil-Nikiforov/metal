@@ -1,12 +1,29 @@
 import React, { useState } from "react";
 import "./TableForTypes.css";
 import AddToBasket from "../AddToBucket/AddToBasket";
+import ModalNotification from "../ModalNotification/ModalNotification";
 
 function TableForTypes({ table }) {
   let firstRow = null;
   const [quan, setQuan] = useState(1);
+  const [notification, setNotification] = useState(null);
+
+  const showNotification = (message, type) => {
+    setNotification({ message, type });
+    setTimeout(() => {
+      setNotification(null);
+    }, 700);
+  };
+
   return (
     <table className="table-for-types-container">
+      {notification && (
+        <ModalNotification
+          message={notification.message}
+          type={notification.type}
+          onClose={() => setNotification(null)}
+        />
+      )}
       {table.map((row, i) =>
         i === 100000 ? (
           ""
@@ -140,7 +157,10 @@ function TableForTypes({ table }) {
                           .then((response) => response.json())
                           .then((data) => {
                             console.log("Товар добавлен в корзину", data);
-                            alert("Товар добавлен в корзину");
+                            showNotification(
+                              "Товар добавлен в корзину",
+                              "success"
+                            );
                           })
                           .catch((error) => {
                             console.error("Ошибка:", error);

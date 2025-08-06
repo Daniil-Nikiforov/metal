@@ -17,10 +17,11 @@
   padding: 5px 0;
 }
 .table-for-types-container-row.col-item-head {
-  background: #000;
+  background: #82071b;
 }
 .table-for-types-container-col-item.col-item-head-text {
   color: #fff;
+  font-weight: 600;
 }
 .table-for-types-container-col {
   width: 100%;
@@ -39,7 +40,7 @@
 
   color: #000;
 
-  font-weight: 600;
+  font-weight: 400;
 }
 .add-to-basket-input {
   font-weight: 600;

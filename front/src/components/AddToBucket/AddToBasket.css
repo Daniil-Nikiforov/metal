@@ -23,7 +23,7 @@
   display: block;
   min-width: 23px;
   max-height: 23.6px;
-  background-color: #000;
+  background-color: #82071b;
   border: none;
   outline: none;
   cursor: pointer;
@@ -35,10 +35,13 @@
   transition: all 0.1s ease;
 }
 .add-to-basket-btn:hover {
-  background-color: #fff;
+  transform: translateY(-1px);
+}
+.add-to-basket-btn:active {
+  transform: translateY(0);
+  transform: scale(0.95);
 }
 .add-to-basket-btn:hover.add-to-basket-btn svg {
-  fill: #000;
   width: 23px;
   height: 23px;
 }

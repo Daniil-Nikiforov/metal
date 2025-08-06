@@ -15,3 +15,7 @@ export const fetchSingleMetal = (url) => {
 export const fetchAllMetals = () => {
   return axios.get(`http://localhost:3000/api/get-all-metals/metals`);
 };
+
+export const deleteCartItem = (itemId) => {
+  return axios.delete(`http://localhost:3000/api/cart/delete/${itemId}`);
+};

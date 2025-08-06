@@ -14,7 +14,7 @@
   height: 60px;
   display: inline-block;
   float: right;
-  background-color: #c0d464;
+  background: #82071b;
   border: none;
   outline: none;
   cursor: pointer;
@@ -58,7 +58,7 @@
   justify-content: center;
   width: 53px;
   height: 53px;
-  background-color: #c0d464;
+  background: #82071b;
   border-radius: 50%;
   border: none;
   outline: none;

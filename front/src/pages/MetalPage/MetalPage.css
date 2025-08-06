@@ -83,7 +83,8 @@
   font-size: 16px;
   font-weight: 600;
   color: #fff;
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  /* background: linear-gradient(135deg, #2ecc71, #27ae60); */
+  background: #82071b;
   border: none;
   border-radius: 8px;
 
@@ -97,7 +98,8 @@
 }
 .metal-page-content-btn-zayavka:hover {
   filter: brightness(1.2);
-  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  /* background: linear-gradient(135deg, #27ae60, #2ecc71); */
+  background: #82071b;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 .matal-page-content-description p {
