@@ -9,10 +9,12 @@ function GetBasketTable() {
   const [notification, setNotification] = useState(null);
 
   const showNotification = (message, type) => {
-    setNotification({ message, type });
-    setTimeout(() => {
-      setNotification(null);
-    }, 700);
+    if (notification == null) {
+      setNotification({ message, type });
+      setTimeout(() => {
+        setNotification(null);
+      }, 700);
+    }
   };
   const loadCart = () => {
     const cartId = localStorage.getItem("cartId");
@@ -117,6 +119,7 @@ function GetBasketTable() {
             <button
               className="item-remove"
               onClick={() => {
+                showNotification(null);
                 deleteCartItem(item.item_id);
                 setCart(cart.filter((p) => p.item_id !== item.item_id));
                 showNotification("Товар удален", "success");
