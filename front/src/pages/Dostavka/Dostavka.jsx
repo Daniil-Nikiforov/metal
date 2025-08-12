@@ -5,13 +5,18 @@ import YandexMap from "../../components/YandexMap/YandexMap";
 import MainContentSection from "../../components/MainContentSection/MainContentSection";
 import { Link } from "react-router";
 import { ModalContext } from "../../context/ModalContext";
+import HeaderHome from "../../components/HeaderHome/HeaderHome";
+import BlueHeaderNav from "../../components/BlueHeaderNav/BlueHeaderNav";
+import GreyHeaderNav from "../../components/GreyHeaderNav/GreyHeaderNav";
 
 function Dostavka() {
   const { openModal } = useContext(ModalContext);
 
   return (
     <div className="dostavka-page">
-      <MainHeader tab="dostavka" />
+      <HeaderHome />
+      <BlueHeaderNav />
+      <GreyHeaderNav />
       <MainContentSection header="Доставка и оплата">
         <div className="dostavka-page-content">
           <p>
@@ -21,7 +26,7 @@ function Dostavka() {
           <p>Существует несколько вариантов оформления заказа:</p>
 
           <p>
-            1) По телефону: достаточно одного звонка в компанию ООО «СОЮЗМЕТАЛЛ»
+            1) По телефону: достаточно одного звонка в компанию ООО «Доминион»»
             по номеру (812) 679-77-30 Менеджер примет заявку и обсудит детали
             заказа.
           </p>
@@ -52,8 +57,8 @@ function Dostavka() {
           <p>
             <ul className="dostavka-page-ul">
               <li>
-                Оплата наличными производится в офисе компании ООО «СОЮЗМЕТАЛЛ»
-                (<Link to="/kontakti">см. схему проезда</Link>) по адресу:
+                Оплата наличными производится в офисе компании ООО «Доминион»» (
+                <Link to="/kontakti">см. схему проезда</Link>) по адресу:
                 Санкт-Петербург, улица Бухарестская, дом 24, корпус 2 литера А,
                 офис 8.
               </li>
@@ -76,7 +81,7 @@ function Dostavka() {
           <p>
             <ol className="dostavka-page-ul">
               <li>
-                Доставка собственным транспортом ООО «СОЮЗМЕТАЛЛ» по любому
+                Доставка собственным транспортом ООО «Доминион»» по любому
                 адресу Петербурга и Ленинградской области.
               </li>
               <li>

@@ -3,6 +3,7 @@ import "./HeaderHome.css";
 import logoImg from "../../assets/logo.png";
 import logoImgWhite from "../../assets/logoV2.jpg";
 import BasketBtn from "../BasketBtn/BasketBtn";
+import SearchBar from "../SearchBar/SearchBar";
 
 function HeaderHome() {
   return (
@@ -13,6 +14,8 @@ function HeaderHome() {
             <img src={logoImgWhite} alt="logo" className="header-home-logo" />
           </a>
         </div>
+
+        <SearchBar />
 
         <p className="header-home-p">
           г. Санкт-Петербург ул Бухарестская, д 24, к 2 лит А, оф 8

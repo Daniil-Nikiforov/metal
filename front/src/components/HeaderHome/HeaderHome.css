@@ -5,7 +5,7 @@
   /* background: #c12c2c; */
   background: #fff;
   width: 100%;
-  overflow: hidden;
+
   margin: 0 auto;
 }
 .header-home-img {
@@ -37,12 +37,14 @@
   grid-template-areas: "logo empty text";
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
 }
 .header-home-p {
   grid-area: text;
   /* color: #5d616d; */
   color: #000;
   line-height: 22px;
+  padding-right: 10px;
 }
 @media (max-width: 768px) {
   .header-home-p {
@@ -51,12 +53,13 @@
     padding-left: 10px;
   }
   .header-home {
-    height: 200px;
+    height: 270px;
   }
   .header-home-grid {
     display: flex;
     flex-direction: column;
     align-items: start;
+    gap: 5px;
   }
   .header-home-img {
     margin-bottom: 10px;

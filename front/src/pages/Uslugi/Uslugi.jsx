@@ -3,11 +3,17 @@ import "./Uslugi.css";
 import YandexMap from "../../components/YandexMap/YandexMap";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import MainContentSection from "../../components/MainContentSection/MainContentSection";
+import HeaderHome from "../../components/HeaderHome/HeaderHome";
+import BlueHeaderNav from "../../components/BlueHeaderNav/BlueHeaderNav";
+import GreyHeaderNav from "../../components/GreyHeaderNav/GreyHeaderNav";
 
 function Uslugi() {
   return (
     <div className="uslugi-page">
-      <MainHeader tab="uslugi" />
+      {/* <MainHeader tab="uslugi" /> */}
+      <HeaderHome />
+      <BlueHeaderNav />
+      <GreyHeaderNav />
       <MainContentSection header="Услуги">
         <ul className="uslugi-page-ul">
           <li>Покраска</li>

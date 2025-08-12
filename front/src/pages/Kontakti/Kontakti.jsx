@@ -3,15 +3,20 @@ import "./Kontakti.css";
 import MainHeader from "../../components/MainHeader/MainHeader";
 import MainContentSection from "../../components/MainContentSection/MainContentSection";
 import YandexMap from "../../components/YandexMap/YandexMap";
+import HeaderHome from "../../components/HeaderHome/HeaderHome";
+import BlueHeaderNav from "../../components/BlueHeaderNav/BlueHeaderNav";
+import GreyHeaderNav from "../../components/GreyHeaderNav/GreyHeaderNav";
 
 function Kontakti() {
   return (
     <div className="kontakti-page">
-      <MainHeader tab="kontakti" />
+      <HeaderHome />
+      <BlueHeaderNav />
+      <GreyHeaderNav />
       <MainContentSection header="Контакты">
         <div className="kontakti-page-content">
           <p>
-            <strong>Компания ООО «СоюзМеталл»</strong>
+            <strong>Компания ООО «Доминион»»</strong>
           </p>
 
           <p>

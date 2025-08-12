@@ -6,6 +6,9 @@ import { Link, useLocation, useParams } from "react-router";
 import { allMetals } from "../../jsDB/jsDb.js";
 import "./MetalList.css";
 import { fetchMetalSubType } from "../../api/metalApi.js";
+import HeaderHome from "../../components/HeaderHome/HeaderHome.jsx";
+import BlueHeaderNav from "../../components/BlueHeaderNav/BlueHeaderNav.jsx";
+import GreyHeaderNav from "../../components/GreyHeaderNav/GreyHeaderNav.jsx";
 // import "../../../public/images/metals/cvetnoi/alumini/alyuminievajaProvoloka.jpg";
 function MetalList() {
   const { name } = useParams();
@@ -59,7 +62,9 @@ function MetalList() {
   if (loading) {
     return (
       <div className="metal-list-page">
-        <MainHeader />
+        <HeaderHome />
+        <BlueHeaderNav />
+        <GreyHeaderNav />
         <MainContentSection header="Загрузка..."></MainContentSection>
         <YandexMap />
       </div>
@@ -67,7 +72,9 @@ function MetalList() {
   } else if (loading == false && !metalList) {
     return (
       <div className="metal-list-page">
-        <MainHeader />
+        <HeaderHome />
+        <BlueHeaderNav />
+        <GreyHeaderNav />
         <MainContentSection header="Товар не найден"></MainContentSection>
         <YandexMap />
       </div>
@@ -76,7 +83,9 @@ function MetalList() {
 
   return (
     <div className="metal-list-page">
-      <MainHeader />
+      <HeaderHome />
+      <BlueHeaderNav />
+      <GreyHeaderNav />
       <MainContentSection header={metalList["0"].sub_type_ru}>
         <div className="metal-list-page-content">
           {metalList.map((metal, index) => (

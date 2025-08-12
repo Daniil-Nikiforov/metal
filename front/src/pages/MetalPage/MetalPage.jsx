@@ -12,6 +12,9 @@ import * as cheerio from "cheerio";
 import AddToBasket from "../../components/AddToBucket/AddToBasket.jsx";
 import { renderToString } from "react-dom/server";
 import TableForTypes from "../../components/TableForTypes/TableForTypes.jsx";
+import HeaderHome from "../../components/HeaderHome/HeaderHome.jsx";
+import BlueHeaderNav from "../../components/BlueHeaderNav/BlueHeaderNav.jsx";
+import GreyHeaderNav from "../../components/GreyHeaderNav/GreyHeaderNav.jsx";
 
 function MetalPage() {
   const { name } = useParams();
@@ -98,6 +101,17 @@ function MetalPage() {
     if (metal && metal?.html_content.length > 0) {
       cher = cheerio.load(metal.html_content);
 
+      cher("*")
+        .contents()
+        .filter(function () {
+          return this.type === "text";
+        })
+        .replaceWith(function () {
+          return cher(this)
+            .text()
+            .replace(/союзметалл/gi, "Доминион");
+        });
+
       cher("table:not([class*='n'])").each((tableIndex, table) => {
         const tableClass = tableIndex;
         resultHtml[tableClass] = [];
@@ -125,7 +139,9 @@ function MetalPage() {
   if (loading) {
     return (
       <div className="metal-page">
-        <MainHeader />
+        <HeaderHome />
+        <BlueHeaderNav />
+        <GreyHeaderNav />
         <MainContentSection header="Загрузка..."></MainContentSection>
         <YandexMap />
       </div>
@@ -133,7 +149,9 @@ function MetalPage() {
   } else if (loading == false && !metal) {
     return (
       <div className="metal-page">
-        <MainHeader />
+        <HeaderHome />
+        <BlueHeaderNav />
+        <GreyHeaderNav />
         <MainContentSection header="Товар не найден"></MainContentSection>
         <YandexMap />
       </div>
@@ -144,7 +162,9 @@ function MetalPage() {
 
     return (
       <div className="metal-page">
-        <MainHeader />
+        <HeaderHome />
+        <BlueHeaderNav />
+        <GreyHeaderNav />
         <MainContentSection header={metal.name}>
           <div className="metal-page-content">
             <ul className="metal-page-content-ul">

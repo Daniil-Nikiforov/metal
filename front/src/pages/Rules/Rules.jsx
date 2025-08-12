@@ -3,11 +3,16 @@ import MainHeader from "../../components/MainHeader/MainHeader";
 import MainContentSection from "../../components/MainContentSection/MainContentSection";
 import YandexMap from "../../components/YandexMap/YandexMap";
 import "./Rules.css";
+import HeaderHome from "../../components/HeaderHome/HeaderHome";
+import BlueHeaderNav from "../../components/BlueHeaderNav/BlueHeaderNav";
+import GreyHeaderNav from "../../components/GreyHeaderNav/GreyHeaderNav";
 
 function Rules() {
   return (
     <div className="rules-page">
-      <MainHeader />
+      <HeaderHome />
+      <BlueHeaderNav />
+      <GreyHeaderNav />
       <MainContentSection
         header="Правила сайта
 "

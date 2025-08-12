@@ -38,7 +38,7 @@ function YandexMap() {
 
       <div className="yandex-footer">
         <div className="yandex-footer-div">
-          <div className="yandex-footer-col1">2020 © ООО "Союзметалл"</div>
+          <div className="yandex-footer-col1">2025 © ООО "Доминион"</div>
           <div className="yandex-footer-col2">
             г. Санкт-Петербург ул Бухарестская, д 24, к 2 лит А, оф 8
             <br />

@@ -3,6 +3,7 @@ import "./GetBasketTable.css";
 import { load } from "cheerio";
 import { deleteCartItem } from "../../api/metalApi";
 import ModalNotification from "../ModalNotification/ModalNotification";
+import DeliveryFrom from "../DeliveryForm/DeliveryFrom";
 
 function GetBasketTable() {
   const [cart, setCart] = useState([]);
@@ -130,10 +131,12 @@ function GetBasketTable() {
           </div>
         ))}
       </div>
+
       {cart && cart.length >= 1 ? (
-        <div className="basket-summary">
-          <button className="checkout-button">Оформить заказ</button>
-        </div>
+        // <div className="basket-summary">
+        //   <button className="checkout-button">Оформить заказ</button>
+        // </div>
+        <DeliveryFrom />
       ) : (
         <div style={{ fontSize: "20px", marginTop: "10px" }}>Корзина пуста</div>
       )}

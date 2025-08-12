@@ -4,6 +4,9 @@ import MainContentSection from "../../components/MainContentSection/MainContentS
 import YandexMap from "../../components/YandexMap/YandexMap";
 import { Link, useLocation, useParams } from "react-router";
 import { fetchMetalType } from "../../api/metalApi";
+import HeaderHome from "../../components/HeaderHome/HeaderHome";
+import BlueHeaderNav from "../../components/BlueHeaderNav/BlueHeaderNav";
+import GreyHeaderNav from "../../components/GreyHeaderNav/GreyHeaderNav";
 
 function MetalListType() {
   const { name } = useParams();
@@ -30,7 +33,9 @@ function MetalListType() {
   if (loading) {
     return (
       <div className="metal-list-page">
-        <MainHeader />
+        <HeaderHome />
+        <BlueHeaderNav />
+        <GreyHeaderNav />
         <MainContentSection header="Загрузка..."></MainContentSection>
         <YandexMap />
       </div>
@@ -38,7 +43,9 @@ function MetalListType() {
   } else if (loading == false && !metalList) {
     return (
       <div className="metal-list-page">
-        <MainHeader />
+        <HeaderHome />
+        <BlueHeaderNav />
+        <GreyHeaderNav />
         <MainContentSection header="Товар не найден"></MainContentSection>
         <YandexMap />
       </div>
@@ -47,7 +54,9 @@ function MetalListType() {
 
   return (
     <div className="metal-list-page">
-      <MainHeader />
+      <HeaderHome />
+      <BlueHeaderNav />
+      <GreyHeaderNav />
       <MainContentSection header={metalList["0"].main_type_ru}>
         <div className="metal-list-page-content">
           {metalList.map((metal, index) => (
