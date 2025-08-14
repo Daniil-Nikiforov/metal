@@ -6,7 +6,7 @@ import path from "path";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 import nodemailer from "nodemailer";
-
+import compression from "compression";
 import pool from "./db/db.js";
 import metalRoutes from "./routes/metalRoutes.js";
 import metalSingleRoute from "./routes/metalSingleRoute.js";
@@ -25,6 +25,8 @@ app.use(express.json());
 app.use(cors());
 app.use(helmet()); //защита
 app.use(morgan("dev")); //log res
+app.use(compression()); //gzip-сжатие
+app.use(express.static("public", { maxAge: "1d" })); //кэширование статики
 
 const __dirname = path.resolve();
 
