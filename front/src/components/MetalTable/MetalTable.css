@@ -3,14 +3,14 @@
   width: 100%;
   margin: 0 auto;
   margin-bottom: 10px;
-  border: solid 1px #82071b;
+  border: solid 1px #ab372e;
   overflow: hidden;
   box-sizing: border-box;
 }
 .metal-table-tabs {
   max-width: 1070px;
   width: 100%;
-  background-color: #82071b;
+  background-color: #ab372e;
   height: 39px;
 }
 .metal-table-tab {

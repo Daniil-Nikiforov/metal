@@ -1,13 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ModalPhoneContext } from "../../context/ModalPhoneContext";
 import "./ModalPhone.css";
 import { MdEmail } from "react-icons/md";
 import { IoIosArrowRoundDown } from "react-icons/io";
 import { Link } from "react-router";
 import { FaPhoneVolume } from "react-icons/fa6";
+import axios from "axios";
 
 function ModalPhone({ onClose }) {
   const { modalPhone } = useContext(ModalPhoneContext);
+  const [phoneData, setPhoneData] = useState("");
+
+  const handleSubmit = async (e) => {
+    try {
+      await axios.post("http://localhost:3000/api/send-phone", {
+        phone: phoneData,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div
@@ -27,6 +39,8 @@ function ModalPhone({ onClose }) {
               className="modal-form-inputP"
               placeholder="Ваш телефон"
               required
+              value={phoneData}
+              onChange={(e) => setPhoneData(e.target.value)}
             />
           </div>
         </div>
@@ -56,7 +70,9 @@ function ModalPhone({ onClose }) {
           <button className="modal-form-btn-cancelP" onClick={onClose}>
             ОТМЕНА
           </button>
-          <button className="modal-form-btn-submitP">ПЕРЕЗВОНИТЕ МНЕ</button>
+          <button className="modal-form-btn-submitP" onClick={handleSubmit}>
+            ПЕРЕЗВОНИТЕ МНЕ
+          </button>
         </div>
       </form>
     </div>

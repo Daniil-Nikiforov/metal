@@ -5,22 +5,30 @@ import { IoIosArrowRoundDown } from "react-icons/io";
 import { ModalContext } from "../../context/ModalContext";
 import { Link } from "react-router";
 import axios from "axios";
+import ModalNotification from "../ModalNotification/ModalNotification";
 
 function ModalForm({ onClose }) {
   const { modal } = useContext(ModalContext);
   const [isSending, setIsSending] = useState(false);
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [notification, setNotification] = useState(null);
+
+  const showNotification = (message, type) => {
+    setNotification({ message, type });
+    setTimeout(() => {
+      setNotification(null);
+    }, 700);
+  };
 
   const handleSubmit = async (e) => {
     setIsSending(true);
-
+    showNotification("Сообщение отправлено", "success");
     try {
       await axios.post("http://localhost:3000/api/send-textarea", {
         textArea: message,
         customerEmail: email,
       });
-      alert("Письмо успешно отправлено");
     } catch (error) {
       console.error(error);
     } finally {
@@ -33,6 +41,13 @@ function ModalForm({ onClose }) {
       onClick={onClose}
     >
       <form className="modal-form" onClick={(e) => e.stopPropagation()}>
+        {notification && (
+          <ModalNotification
+            message={notification.message}
+            type={notification.type}
+            onClose={() => setNotification(null)}
+          />
+        )}
         <h2 className="modal-form-h2">Мы ответим на все ваши вопросы!</h2>
 
         <div className="modal-form-inputs">

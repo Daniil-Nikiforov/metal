@@ -7,12 +7,13 @@
   background: none;
   height: 100%;
   list-style: none;
-  color: #fff;
+  color: #000;
+  font-weight: 600;
   box-sizing: border-box;
 }
 .dropdown-button:hover {
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
 }
 @media (max-width: 768px) {
   .dropdown-button {

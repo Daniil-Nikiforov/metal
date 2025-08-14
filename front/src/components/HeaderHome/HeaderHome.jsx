@@ -28,7 +28,7 @@ function HeaderHome() {
                 href="tel:+78126797730"
                 style={{ fontWeight: "600" }}
               >
-                +7 (812) 679-77-30
+                8 (812) 988-65-38
               </a>
             </strong>
           </div>

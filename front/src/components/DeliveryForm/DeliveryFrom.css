@@ -91,7 +91,7 @@
   display: block;
   width: 100%;
   height: 3px;
-  background: #82071b;
+  background: #ab372e;
   margin: 10px auto 0;
 }
 
@@ -115,7 +115,7 @@
 .delivery-form input:focus,
 .delivery-form textarea:focus {
   outline: none;
-  border-bottom-color: #82071b;
+  border-bottom-color: #ab372e;
   background-color: white;
   box-shadow: 0 5px 12px -5px rgba(52, 152, 219, 0.3);
   transform: translateY(-2px);
@@ -147,7 +147,7 @@
   border-bottom-color: red;
 }
 .delivery-form-button {
-  background: #82071b;
+  background: #ab372e;
   color: white;
   border: none;
   padding: 12px 30px;

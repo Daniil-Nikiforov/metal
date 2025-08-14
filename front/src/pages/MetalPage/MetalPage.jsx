@@ -112,6 +112,18 @@ function MetalPage() {
             .replace(/союзметалл/gi, "Доминион");
         });
 
+      cher("*")
+        .contents()
+        .each(function () {
+          if (this.type === "text") {
+            cher(this).replaceWith(
+              cher(this)
+                .text()
+                .replace(/\(\d{3}\) \d{3}-\d{2}-\d{2}/g, "8 (812) 988-65-38")
+            );
+          }
+        });
+
       cher("table:not([class*='n'])").each((tableIndex, table) => {
         const tableClass = tableIndex;
         resultHtml[tableClass] = [];

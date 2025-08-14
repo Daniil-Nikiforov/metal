@@ -136,7 +136,7 @@ function GetBasketTable() {
         // <div className="basket-summary">
         //   <button className="checkout-button">Оформить заказ</button>
         // </div>
-        <DeliveryFrom />
+        <DeliveryFrom basket={cart} />
       ) : (
         <div style={{ fontSize: "20px", marginTop: "10px" }}>Корзина пуста</div>
       )}
