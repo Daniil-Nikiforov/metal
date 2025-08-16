@@ -10,25 +10,33 @@ import axios from "axios";
 function ModalPhone({ onClose }) {
   const { modalPhone } = useContext(ModalPhoneContext);
   const [phoneData, setPhoneData] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      await axios.post("http://185.23.35.28:3000/api/send-phone", {
-        phone: phoneData,
-      });
+      if (phoneData.length > 1) {
+        setIsSending(true);
+        await axios.post("http://185.23.35.28:3000/api/send-phone", {
+          phone: phoneData,
+        });
+        window.location.reload();
+      }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsSending(false);
     }
   };
 
   return (
-    <div
+    <form
       className={`modal-overlayP ${
         modalPhone.closeAnimation ? "modal-closeP" : ""
       }`}
-      onClick={onClose}
+      onSubmit={handleSubmit}
     >
-      <form className="modal-formP" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-formP">
         <h2 className="modal-form-h2P">Мы ответим на все ваши вопросы!</h2>
 
         <div className="modal-form-inputsP">
@@ -70,12 +78,12 @@ function ModalPhone({ onClose }) {
           <button className="modal-form-btn-cancelP" onClick={onClose}>
             ОТМЕНА
           </button>
-          <button className="modal-form-btn-submitP" onClick={handleSubmit}>
+          <button className="modal-form-btn-submitP" disabled={isSending}>
             ПЕРЕЗВОНИТЕ МНЕ
           </button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }
 

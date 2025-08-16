@@ -22,25 +22,30 @@ function ModalForm({ onClose }) {
   };
 
   const handleSubmit = async (e) => {
-    setIsSending(true);
-    showNotification("Сообщение отправлено", "success");
+    e.preventDefault();
+
     try {
-      await axios.post("http://185.23.35.28:3000/api/send-textarea", {
-        textArea: message,
-        customerEmail: email,
-      });
+      if (email.length > 1) {
+        setIsSending(true);
+        showNotification("Сообщение отправлено", "success");
+        await axios.post("http://185.23.35.28:3000/api/send-textarea", {
+          textArea: message,
+          customerEmail: email,
+        });
+      }
     } catch (error) {
       console.error(error);
     } finally {
       setIsSending(false);
+      window.location.reload();
     }
   };
   return (
-    <div
+    <form
+      onSubmit={handleSubmit}
       className={`modal-overlay ${modal.closeAnimation ? "modal-close" : ""}`}
-      onClick={onClose}
     >
-      <form className="modal-form" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-form">
         {notification && (
           <ModalNotification
             message={notification.message}
@@ -97,12 +102,12 @@ function ModalForm({ onClose }) {
           <button className="modal-form-btn-cancel" onClick={onClose}>
             ОТМЕНА
           </button>
-          <button className="modal-form-btn-submit" onClick={handleSubmit}>
+          <button className="modal-form-btn-submit" disabled={isSending}>
             ОТПРАВИТЬ
           </button>
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   );
 }
 

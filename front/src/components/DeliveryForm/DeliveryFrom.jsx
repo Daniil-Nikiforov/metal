@@ -9,26 +9,32 @@ function DeliveryFrom(props) {
   const [phone, setPhone] = useState("");
   const [delivery, setDelivery] = useState("");
   const [comment, setComment] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
   const [cart, setCart] = useState([]);
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
     try {
-      const cartId = localStorage.getItem("cartId");
-      await axios.post("http://185.23.35.28:3000/api/send-cart", {
-        cart: props.basket,
-        fio: fio,
-        email: email,
-        phone: phone,
-        delivery: delivery,
-        comment: comment,
-        cart_id: cartId,
-      });
-      window.location.reload();
-      setCart(cart.filter((p) => p.cart_id !== cartId));
+      if (email.length > 1 && fio.length > 1 && phone.length > 1) {
+        setIsSending(true);
+        const cartId = localStorage.getItem("cartId");
+        await axios.post("http://185.23.35.28:3000/api/send-cart", {
+          cart: props.basket,
+          fio: fio,
+          email: email,
+          phone: phone,
+          delivery: delivery,
+          comment: comment,
+          cart_id: cartId,
+        });
+        window.location.reload();
+        setCart(cart.filter((p) => p.cart_id !== cartId));
+      }
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsSending(false);
     }
   };
   return (
@@ -75,7 +81,7 @@ function DeliveryFrom(props) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         ></textarea>
-        <button className="delivery-form-button">
+        <button className="delivery-form-button" disabled={isSending}>
           Оформить заказ
         </button>
       </div>
