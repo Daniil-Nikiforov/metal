@@ -22,7 +22,12 @@ const app = express();
 const PORT = process.env.PORT;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'http://185.23.35.28', // Укажите адрес фронта
+  methods: ['GET', 'POST','DELETE'],
+  allowedHeaders: ['Content-Type'],
+  credentials: true
+}));
 app.use(helmet()); //защита
 app.use(morgan("dev")); //log res
 app.use(compression()); //gzip-сжатие
@@ -62,6 +67,7 @@ setInterval(async () => {
      WHERE added_at < NOW() - INTERVAL '1 days'`
   );
 }, 86400000);
+
 app.post("/api/send-cart", async (req, res) => {
   try {
     const { cart, fio, email, phone, delivery, comment, cart_id } = req.body;
@@ -72,6 +78,11 @@ app.post("/api/send-cart", async (req, res) => {
       delivery: delivery,
       comment: comment,
     };
+    await pool.query(
+      `DELETE FROM cart_items 
+     WHERE cart_id = $1 RETURNING *`,
+      [cart_id]
+    );
     const generateCartEmail = (cart, customerData) => {
       return `
 <!DOCTYPE html>
@@ -318,11 +329,7 @@ app.post("/api/send-cart", async (req, res) => {
     };
 
     await transporter.sendMail(mailOptions);
-    await pool.query(
-      `DELETE FROM cart_items 
-     WHERE cart_id = $1`,
-      [cart_id]
-    );
+    
     res.status(200).json({ message: "Письмо успешно отправлено" });
   } catch (error) {}
 });

@@ -4,7 +4,8 @@
   "main": "back/server.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon back/server.js"
+    "dev": "nodemon back/server.js",
+    "start": "node back/server.js"
   },
   "repository": {
     "type": "git",

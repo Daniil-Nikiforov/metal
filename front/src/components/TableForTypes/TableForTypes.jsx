@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./TableForTypes.css";
 import AddToBasket from "../AddToBucket/AddToBasket";
 import ModalNotification from "../ModalNotification/ModalNotification";
+import { v4 as uuidv4 } from 'uuid';
 
 function TableForTypes({ table }) {
   let firstRow = null;
@@ -14,6 +15,7 @@ function TableForTypes({ table }) {
       setNotification(null);
     }, 700);
   };
+  
 
   return (
     <table className="table-for-types-container">
@@ -81,9 +83,9 @@ function TableForTypes({ table }) {
                       <AddToBasket
                         style={{ visibility: "hidden" }}
                         add={() => {
-                          const cartId =
-                            localStorage.getItem("cartId") ||
-                            `anon_${window.crypto.randomUUID()}`;
+                        
+                          const cartId = localStorage.getItem("cartId") || `anon_${uuidv4()}`;
+
                           localStorage.setItem("cartId", cartId);
                           const header = table[0];
                           const selectedRow = row;
@@ -129,14 +131,12 @@ function TableForTypes({ table }) {
                     />
                     <AddToBasket
                       add={() => {
-                        const cartId =
-                          localStorage.getItem("cartId") ||
-                          `anon_${window.crypto.randomUUID()}`;
+                        const cartId = localStorage.getItem("cartId") || `anon_${uuidv4()}`;
                         localStorage.setItem("cartId", cartId);
                         const header = table[0];
                         const selectedRow = row;
 
-                        const itemId = cartId + window.crypto.randomUUID();
+                        const itemId = cartId + uuidv4();
                         console.log(itemId);
 
                         const dataToSend = {
@@ -147,7 +147,7 @@ function TableForTypes({ table }) {
                           item_id: itemId,
                         };
 
-                        fetch("http://localhost:3000/api/cart/add", {
+                        fetch("http://185.23.35.28:3000/api/cart/add", {
                           method: "POST",
                           headers: {
                             "Content-Type": "application/json",

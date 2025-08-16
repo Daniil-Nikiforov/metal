@@ -13,9 +13,10 @@ function DeliveryFrom(props) {
   const [cart, setCart] = useState([]);
 
   const handleSubmit = async (e) => {
+  e.preventDefault();
     try {
       const cartId = localStorage.getItem("cartId");
-      await axios.post("http://localhost:3000/api/send-cart", {
+      await axios.post("http://185.23.35.28:3000/api/send-cart", {
         cart: props.basket,
         fio: fio,
         email: email,
@@ -24,13 +25,14 @@ function DeliveryFrom(props) {
         comment: comment,
         cart_id: cartId,
       });
+      window.location.reload();
       setCart(cart.filter((p) => p.cart_id !== cartId));
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <form className="delivery-form" action="/">
+    <form className="delivery-form" onSubmit={handleSubmit}>
       <p className="delivery-form-p">Заполните форму для заказа</p>
       <div>
         <input
@@ -73,7 +75,7 @@ function DeliveryFrom(props) {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
         ></textarea>
-        <button className="delivery-form-button" onClick={handleSubmit}>
+        <button className="delivery-form-button">
           Оформить заказ
         </button>
       </div>

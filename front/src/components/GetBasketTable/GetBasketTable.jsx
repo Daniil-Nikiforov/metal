@@ -20,7 +20,7 @@ function GetBasketTable() {
   const loadCart = () => {
     const cartId = localStorage.getItem("cartId");
     if (cartId) {
-      fetch(`http://localhost:3000/api/cart/${cartId}`)
+      fetch(`http://185.23.35.28:3000/api/cart/${cartId}`)
         .then((res) => res.json())
         .then((data) => setCart(data));
     }

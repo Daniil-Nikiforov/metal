@@ -13,7 +13,7 @@ function ModalPhone({ onClose }) {
 
   const handleSubmit = async (e) => {
     try {
-      await axios.post("http://localhost:3000/api/send-phone", {
+      await axios.post("http://185.23.35.28:3000/api/send-phone", {
         phone: phoneData,
       });
     } catch (error) {

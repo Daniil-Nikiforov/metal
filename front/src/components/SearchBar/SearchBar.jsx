@@ -15,7 +15,7 @@ function SearchBar() {
     }
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/metals/search/bar?query=${encodeURIComponent(
+        `http://185.23.35.28:3000/api/metals/search/bar?query=${encodeURIComponent(
           newQuery
         )}`
       );

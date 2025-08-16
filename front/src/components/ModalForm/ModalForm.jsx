@@ -25,7 +25,7 @@ function ModalForm({ onClose }) {
     setIsSending(true);
     showNotification("Сообщение отправлено", "success");
     try {
-      await axios.post("http://localhost:3000/api/send-textarea", {
+      await axios.post("http://185.23.35.28:3000/api/send-textarea", {
         textArea: message,
         customerEmail: email,
       });
