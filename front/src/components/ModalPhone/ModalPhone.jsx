@@ -14,6 +14,7 @@ function ModalPhone({ onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     try {
       if (phoneData.length > 1) {
         setIsSending(true);
@@ -30,13 +31,20 @@ function ModalPhone({ onClose }) {
   };
 
   return (
-    <form
+    <div
       className={`modal-overlayP ${
         modalPhone.closeAnimation ? "modal-closeP" : ""
       }`}
-      onSubmit={handleSubmit}
+      onClick={onClose}
     >
-      <div className="modal-formP">
+      <form
+        className="modal-formP"
+        onClick={(e) => {
+          e.stopPropagation();
+
+          handleSubmit(e);
+        }}
+      >
         <h2 className="modal-form-h2P">Мы ответим на все ваши вопросы!</h2>
 
         <div className="modal-form-inputsP">
@@ -82,8 +90,8 @@ function ModalPhone({ onClose }) {
             ПЕРЕЗВОНИТЕ МНЕ
           </button>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 

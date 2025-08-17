@@ -25,27 +25,33 @@ function ModalForm({ onClose }) {
     e.preventDefault();
 
     try {
-      if (email.length > 1) {
+      if (email.length > 1 && message.length > 1) {
         setIsSending(true);
         showNotification("Сообщение отправлено", "success");
         await axios.post("http://185.23.35.28:3000/api/send-textarea", {
           textArea: message,
           customerEmail: email,
         });
+        window.location.reload();
       }
     } catch (error) {
       console.error(error);
     } finally {
       setIsSending(false);
-      window.location.reload();
     }
   };
   return (
-    <form
-      onSubmit={handleSubmit}
+    <div
       className={`modal-overlay ${modal.closeAnimation ? "modal-close" : ""}`}
+      onClick={onClose}
     >
-      <div className="modal-form">
+      <form
+        className="modal-form"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleSubmit(e);
+        }}
+      >
         {notification && (
           <ModalNotification
             message={notification.message}
@@ -106,8 +112,8 @@ function ModalForm({ onClose }) {
             ОТПРАВИТЬ
           </button>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 
