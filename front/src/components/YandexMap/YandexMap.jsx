@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./YandexMap.css";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
@@ -10,6 +11,12 @@ function YandexMap() {
     let sad = document.querySelector(".leaflet-control-attribution");
     sad.innerHTML = "";
   }, []);
+
+  const customIcon = L.icon({
+    iconUrl: "/images/mark.png",
+    iconSize: [34, 34],
+  });
+
   return (
     <div className="yandex-container">
       <div className="yandex-header">
@@ -23,7 +30,7 @@ function YandexMap() {
           scrollWheelZoom={true}
         >
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-          <Marker position={[59.886571, 30.36679]}></Marker>
+          <Marker position={[59.886571, 30.36679]} icon={customIcon}></Marker>
         </MapContainer>
         <a
           style={{ fontWeight: "600" }}
